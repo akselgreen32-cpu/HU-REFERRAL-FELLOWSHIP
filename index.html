@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HU-CMHS Evangelical Christian Students Fellowship | የሀዋሳ ዩኒቨርሲቲ ወንጌላውያን ክርስቲያን ተማሪዎች ኅብረት</title>
 <meta name="description" content="Hawassa University College of Medicine and Health Science Evangelical Christian Students Fellowship. True Love, One Family, Strong Fellowship.">
+
+<!-- Browser Favicon -->
+<link rel="icon" type="image/png" href="assets/logo.png">
+
+<!-- Social Media Sharing Cards (Open Graph) -->
+<meta property="og:title" content="HU-CMHS Evangelical Christian Students Fellowship">
+<meta property="og:description" content="Hawassa University College of Medicine and Health Science Evangelical Christian Students Fellowship. True Love, One Family, Strong Fellowship.">
+<meta property="og:image" content="assets/logo.png">
+<meta property="og:url" content="https://akselgreen32-cpu.github.io/HU-REFERRAL-FELLOWSHIP/">
+<meta property="og:type" content="website">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -120,11 +131,11 @@ h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
 .cards p { font-size:.9rem; margin:.5rem 0 0; }
 .note { font-size:.85rem; margin-top:2rem; text-align: center; padding: 1rem; background: var(--card); border-radius: 8px; border: 1px solid var(--line); display: inline-block; }
 
-/* teams specific */
+/* teams specific (CUSTOM ICONS) */
 .team .n { font-family:var(--sans); font-weight:700; color:var(--secondary); font-size: 1.5rem; opacity: 0.3; position: absolute; top: 1.5rem; right: 1.5rem; transition: opacity 0.3s ease; }
 .team:hover .n { opacity: 1; }
-.team-logo-ph { width: 56px; height: 56px; border-radius: 12px; border: 2px dashed var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: var(--secondary); background: var(--bg); margin-bottom: 1.2rem; transition: transform 0.3s ease; text-align: center; line-height: 1.1; padding: 4px;}
-.team:hover .team-logo-ph { transform: scale(1.05); background: var(--alt); }
+.team-icon { width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--alt); color: var(--primary); margin-bottom: 1.2rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.team:hover .team-icon { transform: scale(1.1) rotate(-5deg); background: var(--primary); color: var(--on-primary); box-shadow: var(--shadow-md); }
 .team h3 { font-size:1.2rem; margin-bottom:.8rem; padding-right: 2rem; }
 .team p { font-size:.95rem; margin:0; line-height: 1.6; }
 
@@ -278,52 +289,76 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <p data-am="አዲስ አባላት ኅብረቱን ከተቀላቀሉ ከሦስት ወር በኋላ አንድ ዘርፍ ይመርጣሉ።">New members choose a team after their first three months in the fellowship.</p>
     </div>
     <div class="teams reveal">
+      <!-- 01 Action -->
       <div class="team">
         <span class="n">01</span>
-        <div class="team-logo-ph">[ Logo ]</div>
+        <div class="team-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        </div>
         <h3 data-am="አክሽን ዘርፍ">Action Team</h3>
         <p data-am="ፍቅርን በተግባር ይገልጣል፤ ህሙማንን መጠየቅ፣ የጎዳና ልጆች፣ የቤተሰብና የእስረኞች አገልግሎት።">Shows love in practice through hospital ward visits, street children, needy families, and prison visits.</p>
       </div>
+      <!-- 02 Berea -->
       <div class="team">
         <span class="n">02</span>
-        <div class="team-logo-ph">[ Logo ]</div>
+        <div class="team-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        </div>
         <h3 data-am="ቤርያ ዘርፍ">Berea Team</h3>
         <p data-am="መጽሐፍ ቅዱስ ተኮር፤ አዳዲስ አማኞችን መከታተልና ማስተማር፣ የጥናት ማስተባበርና የዕለት እንጀራ።">Bible-centered ministry: follow-up and basic teaching for new believers, Bible study coordination, and Daily Bread.</p>
       </div>
+      <!-- 03 Evangelism -->
       <div class="team">
         <span class="n">03</span>
-        <div class="team-logo-ph">[ Logo ]</div>
+        <div class="team-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
         <h3 data-am="የወንጌል ማስተማበር ዘርፍ (EMT)">Evangelism Mobilizing Team</h3>
         <p data-am="በግቢና ከግቢ ውጭ ወንጌልን ማድረስ ይመራል፤ ያስተባብራል።">Leads and mobilizes evangelism on and off campus through personal sharing, Prayer-Care-Share, and outreach.</p>
       </div>
+      <!-- 04 Kebron -->
       <div class="team">
         <span class="n">04</span>
-        <div class="team-logo-ph">[ Logo ]</div>
+        <div class="team-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        </div>
         <h3 data-am="ኬብሮን ኳየር ዘርፍ">Kebron Choir Team</h3>
         <p data-am="ኅብረቱን በዝማሬ አምልኮ ይመራል፤ ግጥምና ዜማ መድረስንና የሙዚቃ መሳሪያዎችን ያሰለጥናል።">Leads worship through song and develops members in music, songwriting, and instruments.</p>
       </div>
+      <!-- 05 Levites -->
       <div class="team">
         <span class="n">05</span>
-        <div class="team-logo-ph">[ Logo ]</div>
+        <div class="team-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+        </div>
         <h3 data-am="ሌቫይትስ የስነጽሑፍና የድራማ ዘርፍ">Levites Literature &amp; Drama</h3>
         <p data-am="በጽሑፍ፣ በስነጽሑፍ ምሽቶችና በድራማ ኅብረቱን ያንጻል።">Builds up the fellowship through written pieces, literature nights, and drama.</p>
       </div>
+      <!-- 06 Prayer -->
       <div class="team">
         <span class="n">06</span>
-        <div class="team-logo-ph">[ Logo ]</div>
+        <div class="team-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+        </div>
         <h3 data-am="የጸሎት ማስተማበር ዘርፍ (PMT)">Prayer Mobilizing Team</h3>
         <p data-am="ኅብረቱን ለጸሎት ያስተባብራል፤ የማለዳና የምሳ ጸሎት፣ የጸሎት ሳምንትና የጾም ቀናትን ያዘጋጃል።">Mobilizes the whole fellowship to pray: daily devotion, lunch prayer, a prayer week, and fasting days.</p>
       </div>
+      <!-- 07 Welfare -->
       <div class="team">
         <span class="n">07</span>
-        <div class="team-logo-ph">[ Logo ]</div>
+        <div class="team-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
         <h3 data-am="ዌልፌር ዘርፍ">Welfare Team</h3>
         <p data-am="የማማከር አገልግሎት፤ የጠፉ አባላትን መከታተል፣ በቴሌግራም ቦት ምክር፣ መጽሐፍ ማዋስ።">Counseling and care: follows up on members who drift away, offers counseling (including via a Telegram bot), and lends spiritual books.</p>
       </div>
+      <!-- Standing Committees -->
       <div class="team" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
         <div style="grid-column: 1 / -1;">
           <span class="n" data-am="ቋሚ ኮሚቴዎች" style="position: relative; top: 0; right: 0; display: block; margin-bottom: 0.5rem; opacity: 1; font-size: 1rem;">Standing Committees</span>
-          <div class="team-logo-ph">[ Logo ]</div>
+          <div class="team-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
           <h3 data-am="ዲጂታልስ · ፈንድ · ሚሽን">Digitals &middot; Fundraising &middot; Mission</h3>
           <p data-am="ዲጂታልስ ግራፊክስ፣ ቪዲዮ፣ ፎቶና ሳውንድ ይሠራል፤ ፈንድ ኮሚቴ ገንዘብ ያሰባስባል፤ ሚሽን ኮሚቴ ዓመታዊውን ሚሲዮናዊ ጉዞ ያዘጋጃል።">Digitals handles graphics, video, photo, and sound. The Fund committee raises resources, and the Mission committee organizes the annual mission trip.</p>
         </div>
@@ -432,13 +467,18 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <div class="label" data-am="ያግኙን">Contact</div>
       <h2 data-am="ይጻፉልን">Get in touch</h2>
       <p data-am="ጥያቄ አለዎት ወይስ ሊቀላቀሉን ይፈልጋሉ? መልእክት ይላኩልን።">Have questions or want to join us? Send us a message.</p>
-      <form id="form">
+      
+      <!-- Upgraded Contact Form via Web3Forms -->
+      <form id="form" action="https://api.web3forms.com/submit" method="POST">
+        <!-- REPLACE "YOUR_ACCESS_KEY_HERE" WITH YOUR FREE KEY FROM WEB3FORMS.COM -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        
         <div><label for="n" data-am="ስም">Name</label><input id="n" name="name" type="text" required autocomplete="name"></div>
         <div><label for="e" data-am="ኢሜይል">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
-        <div><label for="m" data-am="መልእክት">Message</label><textarea id="m" name="msg" rows="5" required></textarea></div>
+        <div><label for="m" data-am="መልእክት">Message</label><textarea id="m" name="message" rows="5" required></textarea></div>
         <button class="btn solid" type="submit" data-am="መልእክት ላክ">Send Message</button>
-        <p id="note2" role="status"></p>
       </form>
+
     </div>
     <div class="reveal">
       <h2 style="font-size:1.8rem; margin-top: 1rem;" data-am="በማህበራዊ ሚዲያ ይከታተሉን">Follow us online</h2>
@@ -519,13 +559,6 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const secs=[...document.querySelectorAll('section[id]')],navA=[...links.querySelectorAll('a')];
 addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))},{passive:true});
 document.getElementById('yr').textContent=new Date().getFullYear();
-
-const CONTACT_EMAIL='';
-document.getElementById('form').addEventListener('submit',e=>{
-  e.preventDefault();const f=e.target,note=document.getElementById('note2');
-  if(!CONTACT_EMAIL){note.textContent=lang==='am'?'የመልእክት ቅጹ ገና አልተገናኘም።':'The contact form is not connected yet.';return}
-  location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent('Message from '+f.name.value)+'&body='+encodeURIComponent(f.msg.value+'\n\n'+f.name.value+' ('+f.email.value+')');
-});
 </script>
 </body>
 </html>
