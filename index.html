@@ -99,7 +99,7 @@ h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
 .center { text-align:center; margin-left:auto; margin-right:auto; }
 
 /* Image Placeholders */
-.ph { background:var(--card); color:var(--ph-text); display:grid; place-items:center; text-align:center; padding:1rem; border:2px dashed var(--line); border-radius:16px; width:100%; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; aspect-ratio:4/3; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); transition: all 0.3s ease; }
+.ph { background:var(--card); color:var(--ph-text); display:grid; place-items:center; text-align:center; padding:1rem; border:2px dashed var(--line); border-radius:16px; width:100%; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); transition: all 0.3s ease; }
 .ph:hover { border-color: var(--secondary); background: var(--alt); color: var(--secondary); }
 
 .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap: 1rem; border-top:1px solid var(--line); margin-top:2rem; padding-top: 2rem; }
@@ -264,7 +264,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         <div data-am="ወንጌልና ሚሲዮን">Gospel &amp; Mission</div>
       </div>
     </div>
-    <div class="ph reveal">
+    <div class="ph reveal" style="aspect-ratio:4/3;">
       [ Add Fellowship Gathering Photo Here ]
     </div>
   </div>
@@ -311,28 +311,29 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   </div>
 </section>
 
+<!-- UPDATED EVENTS SECTION (Stacked layout to prevent overlap) -->
 <section id="events" class="alt">
-  <div class="wrap split">
-    <div class="reveal">
-      <div class="label" data-am="ዓመታዊ ዝግጅቶች">Yearly Events</div>
+  <div class="wrap">
+    <div class="intro reveal center" style="margin-left: auto; margin-right: auto;">
+      <div class="label" data-am="ዓመታዊ ዝግጅቶች" style="justify-content: center;">Yearly Events</div>
       <h2 data-am="ዓመታችንን የሚቀርጹ ጊዜያት">Moments that shape our year</h2>
-      <div class="events">
-        <div class="event"><span class="n">I</span><div><h3 data-am="የዘርፎች ሳምንት (Teams Week)">Teams Week</h3><p data-am="ሁለት ቀናት የጨዋታ፣ የአምልኮና የአንድነት ጊዜ፤ ምሩቃንም ይጋበዛሉ።">Two days of games, worship, and fellowship for members and invited alumni.</p></div></div>
-        <div class="event"><span class="n">II</span><div><h3 data-am="የአዲስ ተማሪዎች አቀባበል">Fresh Welcome</h3><p data-am="አዲስ ክርስቲያን ተማሪዎችን የምንቀበልበትና ወደ ኅብረቱ የምንቀላቅልበት ቀን።">The day we welcome new Christian students and bring them into the fellowship family.</p></div></div>
-        <div class="event"><span class="n">III</span><div><h3 data-am="ኮንፍረንስ">Conference</h3><p data-am="በዓመት ቢያንስ አንድ ጊዜ፣ ለ2-3 ቀናት በተጋባዥ ሰባኪና ዘማሪ።">At least once a year, over two to three days, with guest speakers and worship leaders.</p></div></div>
-        <div class="event"><span class="n">IV</span><div><h3 data-am="የባች ቀንና የተመራቂዎች ሽኝት">Batch Day &amp; Graduate Send-off</h3><p data-am="የባቹን አንድነት የምናጠናክርበትና ተመራቂዎችን በጸሎት የምንሸኝበት።">Strengthening each batch, and sending graduating students off with prayer and certificates.</p></div></div>
-        <div class="event"><span class="n">V</span><div><h3 data-am="ጠቅላላ መሪዎች ጉባኤ (Big Retreat)">Leaders Big Retreat</h3><p data-am="በአዲስ ዓመት መጀመሪያ ለ3 ቀናት የጸሎት፣ የግምገማና የዕቅድ ጊዜ፤ የዓመቱ መሪ ሃሳብም ይተዋወቃል።">Three days of prayer, review, and planning, where the year's Big Picture theme is introduced.</p></div></div>
-      </div>
     </div>
-    <div class="ph reveal" style="aspect-ratio:4/4.6; height: 100%;">
-      [ Add Conference / Event Photo Here ]
+    <div class="ph reveal" style="aspect-ratio: 21/9; margin-bottom: 3.5rem; width: 100%; max-height: 450px;">
+      [ Add Wide Conference / Event Photo Here ]
+    </div>
+    <div class="events reveal" style="max-width: 900px; margin: 0 auto;">
+      <div class="event"><span class="n">I</span><div><h3 data-am="የዘርፎች ሳምንት (Teams Week)">Teams Week</h3><p data-am="ሁለት ቀናት የጨዋታ፣ የአምልኮና የአንድነት ጊዜ፤ ምሩቃንም ይጋበዛሉ።">Two days of games, worship, and fellowship for members and invited alumni.</p></div></div>
+      <div class="event"><span class="n">II</span><div><h3 data-am="የአዲስ ተማሪዎች አቀባበል">Fresh Welcome</h3><p data-am="አዲስ ክርስቲያን ተማሪዎችን የምንቀበልበትና ወደ ኅብረቱ የምንቀላቅልበት ቀን።">The day we welcome new Christian students and bring them into the fellowship family.</p></div></div>
+      <div class="event"><span class="n">III</span><div><h3 data-am="ኮንፍረንስ">Conference</h3><p data-am="በዓመት ቢያንስ አንድ ጊዜ፣ ለ2-3 ቀናት በተጋባዥ ሰባኪና ዘማሪ።">At least once a year, over two to three days, with guest speakers and worship leaders.</p></div></div>
+      <div class="event"><span class="n">IV</span><div><h3 data-am="የባች ቀንና የተመራቂዎች ሽኝት">Batch Day &amp; Graduate Send-off</h3><p data-am="የባቹን አንድነት የምናጠናክርበትና ተመራቂዎችን በጸሎት የምንሸኝበት።">Strengthening each batch, and sending graduating students off with prayer and certificates.</p></div></div>
+      <div class="event"><span class="n">V</span><div><h3 data-am="ጠቅላላ መሪዎች ጉባኤ (Big Retreat)">Leaders Big Retreat</h3><p data-am="በአዲስ ዓመት መጀመሪያ ለ3 ቀናት የጸሎት፣ የግምገማና የዕቅድ ጊዜ፤ የዓመቱ መሪ ሃሳብም ይተዋወቃል።">Three days of prayer, review, and planning, where the year's Big Picture theme is introduced.</p></div></div>
     </div>
   </div>
 </section>
 
 <section id="mission">
   <div class="wrap split">
-    <div class="ph reveal" style="height: 100%;">
+    <div class="ph reveal" style="aspect-ratio:4/3; height: 100%;">
       [ Add Outreach / Mission Trip Photo Here ]
     </div>
     <div class="reveal">
