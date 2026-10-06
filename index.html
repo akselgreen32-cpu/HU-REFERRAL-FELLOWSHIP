@@ -9,142 +9,215 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --primary:#1a4b9c;--secondary:#2b6cb0;--bg:#f8fafc;--alt:#eef2f8;--text:#1e293b;--muted:#475569;
-  --card:#ffffff;--line:#e2e8f0;--nav:rgba(248,250,252,.92);--ph:#cbd5e1;--ph-text:#475569;--foot:#0f2a5c;--on-primary:#fff;
-  --sans:'Inter','Noto Sans Ethiopic',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  --serif:'Source Serif 4','Noto Sans Ethiopic',Georgia,'Times New Roman',serif;
-  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+:root {
+  --primary: #1a4b9c; --secondary: #2b6cb0; --bg: #f8fafc; --alt: #eef2f8; --text: #1e293b; --muted: #475569;
+  --card: #ffffff; --line: #e2e8f0; --nav: rgba(248,250,252,.92); --ph: #cbd5e1; --ph-text: #475569; --foot: #0f2a5c; --on-primary: #fff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --sans: 'Inter', 'Noto Sans Ethiopic', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --serif: 'Source Serif 4', 'Noto Sans Ethiopic', Georgia, 'Times New Roman', serif;
+  box-sizing: border-box; padding-top: env(safe-area-inset-top,0px); padding-bottom: env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--primary:#63b3ed;--secondary:#4299e1;--bg:#0f172a;--alt:#131d33;--text:#f1f5f9;--muted:#94a3b8;--card:#1e293b;--line:#334155;--nav:rgba(15,23,42,.92);--ph:#334155;--ph-text:#94a3b8;--foot:#0a1020;--on-primary:#0f172a}
+
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) {
+    --primary:#63b3ed; --secondary:#4299e1; --bg:#0f172a; --alt:#1e293b; --text:#f1f5f9; --muted:#94a3b8; 
+    --card:#1e293b; --line:#334155; --nav:rgba(15,23,42,.92); --ph:#334155; --ph-text:#94a3b8; --foot:#0a1020; --on-primary:#0f172a;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  }
 }
-:root[data-theme="dark"]{--primary:#63b3ed;--secondary:#4299e1;--bg:#0f172a;--alt:#131d33;--text:#f1f5f9;--muted:#94a3b8;--card:#1e293b;--line:#334155;--nav:rgba(15,23,42,.92);--ph:#334155;--ph-text:#94a3b8;--foot:#0a1020;--on-primary:#0f172a}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--secondary);outline-offset:3px}
-h1,h2,h3{font-family:var(--serif);color:var(--text);line-height:1.25;font-weight:700}
-p{color:var(--muted)}
-.wrap{max-width:1160px;margin:0 auto;padding:0 6%}
+
+:root[data-theme="dark"] {
+  --primary:#63b3ed; --secondary:#4299e1; --bg:#0f172a; --alt:#1e293b; --text:#f1f5f9; --muted:#94a3b8; 
+  --card:#1e293b; --line:#334155; --nav:rgba(15,23,42,.92); --ph:#334155; --ph-text:#94a3b8; --foot:#0a1020; --on-primary:#0f172a;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:calc(80px + env(safe-area-inset-top,0px)); }
+body { font-family:var(--sans); background:var(--bg); color:var(--text); line-height:1.7; font-size:16px; overflow-x:hidden; -webkit-font-smoothing:antialiased; transition: background-color 0.3s ease, color 0.3s ease; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--secondary); outline-offset:3px; }
+h1, h2, h3 { font-family:var(--serif); color:var(--text); line-height:1.25; font-weight:700; }
+p { color:var(--muted); }
+.wrap { max-width:1160px; margin:0 auto; padding:0 6%; }
 
 /* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;padding-top:env(safe-area-inset-top,0px);box-sizing:content-box}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--primary);line-height:1.2}
-.brand small{display:block;font-family:var(--sans);font-weight:500;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.links{display:flex;gap:1.4rem;list-style:none}
-.links a{text-decoration:none;font-size:.88rem;font-weight:500;color:var(--muted);padding:.4rem 0;border-bottom:2px solid transparent;transition:.2s}
-.links a:hover,.links a.active{color:var(--primary);border-color:var(--primary)}
-.tools{display:flex;gap:.5rem}
-.sq{background:none;border:1px solid var(--line);color:var(--text);height:38px;min-width:38px;padding:0 .8rem;border-radius:4px;cursor:pointer;font:600 .8rem var(--sans);transition:.2s}
-.sq:hover{border-color:var(--primary);color:var(--primary)}
-#menuBtn{display:none;padding:0}
+nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--nav); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); transition: background-color 0.3s ease; }
+nav .wrap { display:flex; align-items:center; justify-content:space-between; height:76px; padding-top:env(safe-area-inset-top,0px); box-sizing:content-box; }
+.brand { display:flex; align-items:center; gap:.8rem; text-decoration:none; font-family:var(--serif); font-weight:700; font-size:1.1rem; color:var(--primary); line-height:1.2; }
+.brand-logo { width: 45px; height: 45px; object-fit: contain; border-radius: 50%; background-color: white; padding: 2px; box-shadow: var(--shadow-sm); }
+.brand small { display:block; font-family:var(--sans); font-weight:500; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top: 2px; }
+.links { display:flex; gap:1.6rem; list-style:none; }
+.links a { text-decoration:none; font-size:.9rem; font-weight:500; color:var(--muted); padding:.4rem 0; border-bottom:2px solid transparent; transition:all .2s; }
+.links a:hover, .links a.active { color:var(--primary); border-color:var(--primary); }
+.tools { display:flex; gap:.6rem; }
+.sq { background:var(--card); border:1px solid var(--line); color:var(--text); height:40px; min-width:40px; padding:0 .8rem; border-radius:8px; cursor:pointer; font:600 .85rem var(--sans); transition:all .2s; box-shadow: var(--shadow-sm); }
+.sq:hover { border-color:var(--primary); color:var(--primary); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.sq:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+#menuBtn { display:none; padding:0; font-size: 1.2rem; }
 
-.btn{display:inline-block;text-decoration:none;font:600 .92rem var(--sans);padding:.85rem 1.7rem;border-radius:4px;border:1px solid var(--primary);transition:.2s;cursor:pointer}
-.btn.solid{background:var(--primary);color:var(--on-primary)}
-.btn.solid:hover{opacity:.9}
+/* Modern Responsive Buttons */
+.btn { 
+  display:inline-flex; align-items: center; justify-content: center; text-decoration:none; 
+  font:600 .95rem var(--sans); padding:.85rem 2rem; border-radius:8px; border:2px solid var(--primary); 
+  transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor:pointer; box-shadow: var(--shadow-sm); 
+}
+.btn.solid { background:var(--primary); color:var(--on-primary); }
+.btn.solid:hover { background:var(--secondary); border-color:var(--secondary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn:not(.solid):hover { background: rgba(26, 75, 156, 0.05); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
 
 /* hero */
-.hero{text-align:center;color:#fff;background:linear-gradient(135deg,#1a4b9c 0%,#12356f 100%);padding:calc(68px + 7rem + env(safe-area-inset-top,0px)) 0 6rem}
-.hero .k{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#bcd3f5;margin-bottom:1.2rem}
-.hero h1{color:#fff;font-size:clamp(2rem,5vw,3.6rem);max-width:18ch;margin:0 auto 1.3rem;letter-spacing:-.005em}
-.hero p{color:#d6e4fa;max-width:60ch;margin:0 auto 2rem;font-size:1.05rem}
-.hero .cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-.hero .btn{border-color:#fff;color:#fff;background:transparent}
-.hero .btn.solid{background:#fff;color:#1a4b9c}
-.hero .btn:hover{background:rgba(255,255,255,.14)}.hero .btn.solid:hover{background:#eaf1fc}
-.motto{margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.25);font-size:.95rem;color:#bcd3f5}
-.motto b{display:block;color:#fff;font-weight:500}
+.hero { text-align:center; color:#fff; background:linear-gradient(135deg, #1a4b9c 0%, #0f2a5c 100%); padding:calc(76px + 7rem + env(safe-area-inset-top,0px)) 0 7rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 60%); pointer-events: none; }
+.hero .k { font-size:.75rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#bcd3f5; margin-bottom:1.5rem; display: inline-block; padding: 0.4rem 1rem; background: rgba(255,255,255,0.1); border-radius: 20px; backdrop-filter: blur(4px); }
+.hero h1 { color:#fff; font-size:clamp(2.2rem, 5vw, 4rem); max-width:18ch; margin:0 auto 1.5rem; letter-spacing:-.01em; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.hero p { color:#d6e4fa; max-width:60ch; margin:0 auto 2.5rem; font-size:1.1rem; }
+.hero .cta { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.hero .btn { border-color:#fff; color:#fff; background:transparent; }
+.hero .btn.solid { background:#fff; color:#1a4b9c; border-color:#fff; }
+.hero .btn.solid:hover { background:#eaf1fc; border-color:#eaf1fc; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.hero .btn:not(.solid):hover { background:rgba(255,255,255,.1); border-color:#fff; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.motto { margin-top:4rem; padding-top:1.6rem; border-top:1px solid rgba(255,255,255,.2); font-size:.95rem; color:#bcd3f5; }
+.motto b { display:block; color:#fff; font-weight:500; font-size: 1.1rem; margin-bottom: 0.3rem; }
 
 /* sections */
-section{padding:6rem 0}
-section.alt{background:var(--alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.label{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--secondary);margin-bottom:.9rem}
-h2{font-size:clamp(1.7rem,3.2vw,2.4rem);margin-bottom:1.2rem}
-.split{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center}
-.split p{margin-bottom:1rem}
-.intro{max-width:660px;margin-bottom:2.8rem}
-.center{text-align:center;margin-left:auto;margin-right:auto}
-.ph{background:var(--ph);color:var(--ph-text);display:grid;place-items:center;text-align:center;padding:1rem;border:1px solid var(--line);border-radius:4px;width:100%;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;aspect-ratio:4/3}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:1.8rem}
-.pillars div{padding:1rem 1rem 0 0;font-family:var(--serif);font-weight:700;color:var(--primary)}
+section { padding:6rem 0; }
+section.alt { background:var(--alt); }
+.label { font-size:.75rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--secondary); margin-bottom:.9rem; display: flex; align-items: center; gap: 0.5rem; }
+.label::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--secondary); }
+h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
+.split { display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:center; }
+.split p { margin-bottom:1.2rem; font-size: 1.05rem; }
+.intro { max-width:660px; margin-bottom:3.5rem; }
+.center { text-align:center; margin-left:auto; margin-right:auto; }
 
-/* schedule */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.cards>div{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--primary);padding:1.5rem 1.4rem}
-.cards span{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--secondary)}
-.cards h3{font-size:1.08rem;margin:.4rem 0 .6rem}
-.cards b{display:block;color:var(--primary);font-size:.92rem;font-weight:600}
-.cards p{font-size:.88rem;margin:.2rem 0 0}
-.note{font-size:.85rem;margin-top:1.4rem}
+/* Image Placeholders */
+.ph { background:var(--card); color:var(--ph-text); display:grid; place-items:center; text-align:center; padding:1rem; border:2px dashed var(--line); border-radius:16px; width:100%; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; aspect-ratio:4/3; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); transition: all 0.3s ease; }
+.ph:hover { border-color: var(--secondary); background: var(--alt); color: var(--secondary); }
 
-/* teams */
-.teams{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
-.team{padding:2rem 1.7rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-top:1px solid var(--line);margin-top:-1px;background:var(--card);transition:background .25s}
-.team:hover{background:var(--alt)}
-.team .n{font-family:var(--serif);font-weight:600;color:var(--secondary);display:block;margin-bottom:1rem}
-.team h3{font-size:1.12rem;margin-bottom:.5rem}
-.team p{font-size:.92rem;margin:0}
+.pillars { display:grid; grid-template-columns:repeat(3,1fr); gap: 1rem; border-top:1px solid var(--line); margin-top:2rem; padding-top: 2rem; }
+.pillars div { padding:1.5rem; background: var(--card); border-radius: 8px; border: 1px solid var(--line); font-family:var(--serif); font-weight:700; color:var(--primary); text-align: center; font-size: 1.1rem; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
+.pillars div:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--secondary); }
+
+/* schedule & team cards */
+.cards, .teams { display:grid; grid-template-columns:repeat(3,1fr); gap:1.8rem; }
+.cards > div, .team { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:2rem 1.8rem; box-shadow: var(--shadow-sm); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease; position: relative; overflow: hidden; }
+.cards > div::before, .team::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--primary); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.team::before { background: var(--secondary); }
+.cards > div:hover, .team:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--line); }
+.cards > div:hover::before, .team:hover::before { transform: scaleX(1); }
+
+.cards span { font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--secondary); background: var(--alt); padding: 0.3rem 0.8rem; border-radius: 20px; display: inline-block; margin-bottom: 1rem; }
+.cards h3 { font-size:1.15rem; margin:0 0 .8rem; }
+.cards b { display:block; color:var(--primary); font-size:.95rem; font-weight:600; display: flex; align-items: center; gap: 0.4rem; }
+.cards p { font-size:.9rem; margin:.5rem 0 0; }
+.note { font-size:.85rem; margin-top:2rem; text-align: center; padding: 1rem; background: var(--card); border-radius: 8px; border: 1px solid var(--line); display: inline-block; }
+
+/* teams specific */
+.team .n { font-family:var(--sans); font-weight:700; color:var(--secondary); font-size: 1.5rem; opacity: 0.3; position: absolute; top: 1.5rem; right: 1.5rem; transition: opacity 0.3s ease; }
+.team:hover .n { opacity: 1; }
+.team h3 { font-size:1.2rem; margin-bottom:.8rem; padding-right: 2rem; }
+.team p { font-size:.95rem; margin:0; line-height: 1.6; }
 
 /* events */
-.events{border-top:1px solid var(--line)}
-.event{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;padding:1.3rem 0;border-bottom:1px solid var(--line)}
-.event .n{font-family:var(--serif);font-weight:600;color:var(--secondary)}
-.event h3{font-size:1.08rem;margin-bottom:.2rem}
-.event p{margin:0;font-size:.92rem}
+.events { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.event { display:grid; grid-template-columns:3rem 1fr; gap:1.5rem; padding:1.8rem; border-bottom:1px solid var(--line); transition: background 0.3s ease; }
+.event:last-child { border-bottom: none; }
+.event:hover { background: var(--alt); }
+.event .n { font-family:var(--serif); font-weight:700; font-size: 1.2rem; color:var(--secondary); display: flex; align-items: center; justify-content: center; background: var(--alt); width: 3rem; height: 3rem; border-radius: 50%; }
+.event h3 { font-size:1.15rem; margin-bottom:.4rem; }
+.event p { margin:0; font-size:.95rem; }
 
 /* lists */
-.ticks{list-style:none;border-top:1px solid var(--line)}
-.ticks li{padding:.9rem 0 .9rem 1.6rem;border-bottom:1px solid var(--line);position:relative;color:var(--muted);font-size:.95rem}
-.ticks li::before{content:'';position:absolute;left:0;top:1.35rem;width:8px;height:8px;background:var(--primary)}
+.ticks { list-style:none; margin-top: 1.5rem; }
+.ticks li { padding:.8rem 0 .8rem 2rem; position:relative; color:var(--text); font-size:1rem; border-bottom: 1px solid var(--line); }
+.ticks li:last-child { border-bottom: none; }
+.ticks li::before { content:'✓'; position:absolute; left:0; top: .8rem; font-weight: bold; color:var(--primary); font-size: 1.1rem; }
 
 /* leaders */
-.leaders{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
-.leader .ph{aspect-ratio:1;margin-bottom:.9rem}
-.leader h3{font-size:1.05rem}
-.leader p{font-size:.85rem;margin:0}
+.leaders { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+.leader { background: var(--card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--line); text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
+.leader:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.leader .ph { aspect-ratio:1; border-radius: 50%; width: 120px; height: 120px; margin: 0 auto 1.2rem; }
+.leader h3 { font-size:1.1rem; margin-bottom: 0.2rem; }
+.leader p { font-size:.85rem; margin:0; color: var(--secondary); font-weight: 500; }
 
 /* contact */
-form{display:grid;gap:1rem}
-label{font-size:.8rem;font-weight:600;display:block;margin-bottom:.35rem}
-input,textarea{width:100%;padding:.8rem .9rem;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--text);font:inherit}
-input:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 20%,transparent)}
-#note2{font-size:.88rem;min-height:1.3rem;color:var(--primary);margin:0}
-.channels{list-style:none;border-top:1px solid var(--line);margin:1.4rem 0}
-.channels li{display:flex;justify-content:space-between;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.channels a{text-decoration:none;font-weight:600;color:var(--primary)}
-.channels a:hover{text-decoration:underline}
+form { display:grid; gap:1.2rem; background: var(--card); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow-md); }
+label { font-size:.85rem; font-weight:600; display:block; margin-bottom:.5rem; color: var(--text); }
+input, textarea { width:100%; padding:.9rem 1rem; border:2px solid var(--line); border-radius:8px; background:var(--bg); color:var(--text); font:inherit; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+input:focus, textarea:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 4px rgba(26, 75, 156, 0.1); background: var(--card); }
+#note2 { font-size:.9rem; min-height:1.3rem; color:var(--primary); margin:0; font-weight: 500; }
 
-footer{background:var(--foot);color:#aebfdc;padding:3.2rem 0 2rem;text-align:center}
-footer strong{display:block;font-family:var(--serif);color:#fff;font-size:1.1rem;margin-bottom:.4rem}
-footer p{color:#aebfdc;font-size:.9rem;margin:0 auto .3rem;max-width:60ch}
-footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.14);font-size:.8rem;color:#8196bb}
+/* Social Channels */
+.channels { list-style:none; margin:1.8rem 0; display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.channels li { background: var(--card); border: 2px solid var(--line); border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.channels a { display:flex; justify-content:space-between; align-items: center; padding:1.2rem 1.4rem; text-decoration:none; font-weight:600; color:var(--text); transition: color 0.3s ease; }
+.icon-wrap { display: flex; align-items: center; gap: 12px; font-size: 1.05rem; }
+.channels a span { color: var(--secondary); font-size: 1.2rem; transition: transform 0.3s ease; }
 
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
+/* Social Hover Brand Colors */
+.ch-tg:hover { border-color: #0088cc; box-shadow: 0 6px 16px rgba(0, 136, 204, 0.15); transform: translateY(-4px); }
+.ch-tg:hover a { color: #0088cc; }
+.ch-tg:hover span { transform: translate(2px, -2px); color: #0088cc; }
 
-@media (max-width:900px){
-  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s}
-  .links.open{max-height:460px}
-  .links a{display:block;padding:.9rem 6%;border:0}
-  #menuBtn{display:block}
-  .split{grid-template-columns:1fr;gap:2.5rem}
-  .cards,.teams{grid-template-columns:1fr 1fr}
-  .leaders{grid-template-columns:1fr 1fr}
-  section{padding:4.5rem 0}
-  .hero{padding-top:calc(68px + 4.5rem + env(safe-area-inset-top,0px));padding-bottom:4.5rem}
+.ch-ig:hover { border-color: #E1306C; box-shadow: 0 6px 16px rgba(225, 48, 108, 0.15); transform: translateY(-4px); }
+.ch-ig:hover a { color: #E1306C; }
+.ch-ig:hover span { transform: translate(2px, -2px); color: #E1306C; }
+
+.ch-tk:hover { border-color: var(--text); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); transform: translateY(-4px); }
+.ch-tk:hover a { color: var(--text); }
+.ch-tk:hover span { transform: translate(2px, -2px); color: var(--text); }
+[data-theme="dark"] .ch-tk:hover { border-color: #ff0050; box-shadow: 0 6px 16px rgba(255, 0, 80, 0.15); }
+[data-theme="dark"] .ch-tk:hover a { color: #ff0050; }
+[data-theme="dark"] .ch-tk:hover span { color: #ff0050; }
+
+footer { background:var(--foot); color:#aebfdc; padding:4rem 0 2rem; text-align:center; }
+footer strong { display:block; font-family:var(--serif); color:#fff; font-size:1.3rem; margin-bottom:.6rem; }
+footer p { color:#aebfdc; font-size:.95rem; margin:0 auto .5rem; max-width:60ch; }
+footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.1); font-size:.85rem; color:#8196bb; }
+
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(0.16, 1, 0.3, 1), transform .8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.in { opacity:1; transform:none; }
+
+@media (max-width:1024px) {
+  .split { gap: 3rem; }
 }
-@media (max-width:560px){.cards,.teams,.pillars{grid-template-columns:1fr}.brand small{display:none}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+@media (max-width:900px) {
+  .links { position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0; background:var(--card); border-bottom:1px solid var(--line); max-height:0; overflow:hidden; transition:max-height .3s ease-in-out; box-shadow: var(--shadow-md); }
+  .links.open { max-height:460px; }
+  .links a { display:block; padding:1rem 6%; border:0; border-bottom: 1px solid var(--line); font-size: 1rem; }
+  .links a:last-child { border-bottom: none; }
+  #menuBtn { display:block; }
+  .split { grid-template-columns:1fr; gap:3rem; }
+  .cards, .teams, .leaders { grid-template-columns:repeat(2,1fr); }
+  section { padding:5rem 0; }
+  .hero { padding-top:calc(76px + 5rem + env(safe-area-inset-top,0px)); padding-bottom:5rem; }
+}
+
+@media (max-width:600px) {
+  .cards, .teams, .leaders, .pillars { grid-template-columns:1fr; }
+  .brand small { display:none; }
+  h2 { font-size: 2rem; }
+  .hero h1 { font-size: 2.2rem; }
+}
+
+@media (prefers-reduced-motion:reduce) { * { transition:none!important; } .reveal { opacity:1; transform:none; } html { scroll-behavior:auto; } }
 </style>
 </head>
 <body>
 <nav>
   <div class="wrap">
     <a class="brand" href="#top">
-      <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true"><rect x="4" y="4" width="92" height="92" rx="8" fill="none" stroke="currentColor" stroke-width="6"/><path d="M50 22v56M28 40h44" stroke="currentColor" stroke-width="9" stroke-linecap="square"/></svg>
+      <img src="assets/logo.png" alt="HU-CMHS Fellowship Logo" class="brand-logo" onerror="this.style.display='none'">
       <span>HU-CMHS Fellowship<small data-am="ወንጌላውያን ክርስቲያን ተማሪዎች ኅብረት">Evangelical Christian Students</small></span>
     </a>
     <ul class="links" id="links">
@@ -158,7 +231,11 @@ footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,
     </ul>
     <div class="tools">
       <button class="sq" id="langBtn" aria-label="Language / ቋንቋ">አማ</button>
-      <button class="sq" id="themeToggle" aria-label="Toggle theme">Dark</button>
+      <button class="sq" id="themeToggle" aria-label="Toggle theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="themeIcon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
       <button class="sq" id="menuBtn" aria-label="Menu" aria-expanded="false">&#9776;</button>
     </div>
   </div>
@@ -187,7 +264,9 @@ footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,
         <div data-am="ወንጌልና ሚሲዮን">Gospel &amp; Mission</div>
       </div>
     </div>
-    <div class="ph reveal">Fellowship Gathering Photo</div>
+    <div class="ph reveal">
+      [ Add Fellowship Gathering Photo Here ]
+    </div>
   </div>
 </section>
 
@@ -199,14 +278,16 @@ footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,
       <p data-am="በየሳምንቱ አምልኮ፣ የመጽሐፍ ቅዱስ ጥናትና ጸሎት አለን። ሁሉም ተማሪ እንኳን ደህና መጣችሁ።">Every week we gather for worship, Bible study, and prayer. All students are welcome.</p>
     </div>
     <div class="cards reveal">
+      <div><span data-am="ሰኞ">Monday</span><h3 data-am="የአዲስ ገቢ ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, Fresh Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሪፈራል መካነ ኢየሱስ ቤ/ክ">Referral Mekane Yesus Church</p></div>
+      <div><span data-am="ማክሰኞ">Tuesday</span><h3 data-am="የቀሪዎቹ 5 ዘርፎች የኅብረት ጊዜ">Fellowship of the Rest of the Teams</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="መካነ ኢየሱስ፣ ሆጎዋ እና ህይወት ብርሃን ጽ/ቤት">Mekane Yesus, Hogwa, and Hiwot Berhan Office</p></div>
+      <div><span data-am="ረቡዕ">Wednesday</span><h3 data-am="ሌቫይትስና ቤርያ ዘርፎች የኅብረት ጊዜ">Levites &amp; Berea Teams Fellowship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ህይወት ብርሃን ጽ/ቤት">Hiwot Berhan Office</p></div>
+      <div><span data-am="ሐሙስ">Thursday</span><h3 data-am="የነባር ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, Senior Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
       <div><span data-am="ዐርብ">Friday</span><h3 data-am="የኅብረቱ አምልኮ">Fellowship Worship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
-      <div><span data-am="ሰኞ">Monday</span><h3 data-am="የነባር ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, Returning Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
-      <div><span data-am="ማክሰኞ">Tuesday</span><h3 data-am="የአዲስ ገቢ ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, New Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሪፈራል መካነ ኢየሱስ ቤ/ክ">Referral Mekane Yesus Church</p></div>
-      <div><span data-am="ረቡዕ">Wednesday</span><h3 data-am="ሌቫይትስ የኅብረት ጊዜ">Levites Team Fellowship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ህይወት ብርሃን ጽ/ቤት">Hiwot Berhan Office</p></div>
-      <div><span data-am="ሐሙስ">Thursday</span><h3 data-am="የሌሎች 6 ዘርፎች የኅብረት ጊዜ">Fellowship of the Other Six Teams</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="መካነ ኢየሱስ፣ ሆጎዋ እና ህይወት ብርሃን ጽ/ቤት">Mekane Yesus, Hogwa, and Hiwot Berhan Office</p></div>
       <div><span data-am="ሰኞ እስከ ቅዳሜ">Monday to Saturday</span><h3 data-am="የማለዳና የምሳ ሰዓት ጸሎት">Morning Devotion &amp; Lunch Prayer</h3><b data-am="ማለዳ 12:00-1:00 · ምሳ 6:00-7:00">Morning 12:00-1:00 · Lunch 6:00-7:00</b><p data-am="ሁሉም አባል ይሳተፋል">Open to every member</p></div>
     </div>
-    <p class="note" data-am="ሰዓቶች በኢትዮጵያ አቆጣጠር ናቸው።">All times follow the Ethiopian clock.</p>
+    <div class="center">
+      <p class="note reveal" data-am="ሰዓቶች በኢትዮጵያ አቆጣጠር ናቸው።">All times follow the Ethiopian clock.</p>
+    </div>
   </div>
 </section>
 
@@ -225,7 +306,7 @@ footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,
       <div class="team"><span class="n">05</span><h3 data-am="ሌቫይትስ የስነጽሑፍና የድራማ ዘርፍ">Levites Literature &amp; Drama</h3><p data-am="በጽሑፍ፣ በስነጽሑፍ ምሽቶችና በድራማ ኅብረቱን ያንጻል።">Builds up the fellowship through written pieces, literature nights, and drama.</p></div>
       <div class="team"><span class="n">06</span><h3 data-am="የጸሎት ማስተማበር ዘርፍ (PMT)">Prayer Mobilizing Team</h3><p data-am="ኅብረቱን ለጸሎት ያስተባብራል፤ የማለዳና የምሳ ጸሎት፣ የጸሎት ሳምንትና የጾም ቀናትን ያዘጋጃል።">Mobilizes the whole fellowship to pray: daily devotion, lunch prayer, a prayer week, and fasting days.</p></div>
       <div class="team"><span class="n">07</span><h3 data-am="ዌልፌር ዘርፍ">Welfare Team</h3><p data-am="የማማከር አገልግሎት፤ የጠፉ አባላትን መከታተል፣ በቴሌግራም ቦት ምክር፣ መጽሐፍ ማዋስ።">Counseling and care: follows up on members who drift away, offers counseling (including via a Telegram bot), and lends spiritual books.</p></div>
-      <div class="team" style="grid-column:span 2"><span class="n" data-am="ቋሚ ኮሚቴዎች">Standing Committees</span><h3 data-am="ዲጂታልስ · ፈንድ · ሚሽን">Digitals &middot; Fundraising &middot; Mission</h3><p data-am="ዲጂታልስ ግራፊክስ፣ ቪዲዮ፣ ፎቶና ሳውንድ ይሠራል፤ ፈንድ ኮሚቴ ገንዘብ ያሰባስባል፤ ሚሽን ኮሚቴ ዓመታዊውን ሚሲዮናዊ ጉዞ ያዘጋጃል።">Digitals handles graphics, video, photo, and sound. The Fund committee raises resources, and the Mission committee organizes the annual mission trip.</p></div>
+      <div class="team" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;"><div style="grid-column: 1 / -1;"><span class="n" data-am="ቋሚ ኮሚቴዎች" style="position: relative; top: 0; right: 0; display: block; margin-bottom: 0.5rem; opacity: 1; font-size: 1rem;">Standing Committees</span><h3 data-am="ዲጂታልስ · ፈንድ · ሚሽን">Digitals &middot; Fundraising &middot; Mission</h3><p data-am="ዲጂታልስ ግራፊክስ፣ ቪዲዮ፣ ፎቶና ሳውንድ ይሠራል፤ ፈንድ ኮሚቴ ገንዘብ ያሰባስባል፤ ሚሽን ኮሚቴ ዓመታዊውን ሚሲዮናዊ ጉዞ ያዘጋጃል።">Digitals handles graphics, video, photo, and sound. The Fund committee raises resources, and the Mission committee organizes the annual mission trip.</p></div></div>
     </div>
   </div>
 </section>
@@ -243,13 +324,17 @@ footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,
         <div class="event"><span class="n">V</span><div><h3 data-am="ጠቅላላ መሪዎች ጉባኤ (Big Retreat)">Leaders Big Retreat</h3><p data-am="በአዲስ ዓመት መጀመሪያ ለ3 ቀናት የጸሎት፣ የግምገማና የዕቅድ ጊዜ፤ የዓመቱ መሪ ሃሳብም ይተዋወቃል።">Three days of prayer, review, and planning, where the year's Big Picture theme is introduced.</p></div></div>
       </div>
     </div>
-    <div class="ph reveal" style="aspect-ratio:4/4.6">Conference / Event Photo</div>
+    <div class="ph reveal" style="aspect-ratio:4/4.6; height: 100%;">
+      [ Add Conference / Event Photo Here ]
+    </div>
   </div>
 </section>
 
 <section id="mission">
   <div class="wrap split">
-    <div class="ph reveal">Outreach / Mission Trip Photo</div>
+    <div class="ph reveal" style="height: 100%;">
+      [ Add Outreach / Mission Trip Photo Here ]
+    </div>
     <div class="reveal">
       <div class="label" data-am="ሚሲዮናዊ አገልግሎት">Mission Service</div>
       <h2 data-am="ወንጌልን ወዳልሰሙ">Taking the gospel to the unreached</h2>
@@ -270,7 +355,7 @@ footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,
       <h2 data-am="የኢቫሱ የእምነት መመሪያ">The EvaSUE statement of faith</h2>
       <p data-am="ኅብረታችን ከተለያዩ ወንጌላውያን አብያተ ክርስቲያናት የመጡ አባላትን ይዟል፤ መሠረታዊ የክርስትና እምነትን በጽኑ እናምናለን።">Our members come from many evangelical churches. Together we hold firmly to the core of the Christian faith.</p>
     </div>
-    <ul class="ticks reveal">
+    <ul class="ticks reveal" style="margin-top: 0;">
       <li data-am="አብ፣ ወልድና መንፈስ ቅዱስ አንድ አምላክ።">One God: Father, Son, and Holy Spirit.</li>
       <li data-am="መጽሐፍ ቅዱስ በመለኮት የተጻፈና የእምነትና የአኗኗር የመጨረሻ ባለስልጣን ነው።">The Bible is God-inspired and our final authority in faith and life.</li>
       <li data-am="ደህንነት በኢየሱስ ክርስቶስ መስዋእታዊ ሞትና ትንሣኤ ነው።">Salvation comes through the sacrificial death and resurrection of Jesus Christ.</li>
@@ -289,12 +374,12 @@ footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,
       <p data-am="ሰባት ዋና መሪዎች ለሁለት ዓመት ያገለግላሉ፤ እያንዳንዳቸውም ለአንድ ዘርፍ ተጠሪ ናቸው።">Seven main leaders serve a two-year term, and each is linked to one of the teams.</p>
     </div>
     <div class="leaders reveal">
-      <div class="leader"><div class="ph">Portrait</div><h3 data-am="ሰብሳቢ">Chairperson</h3><p>[ Name ]</p></div>
-      <div class="leader"><div class="ph">Portrait</div><h3 data-am="ምክትል ሰብሳቢ">Vice Chairperson</h3><p>[ Name ]</p></div>
-      <div class="leader"><div class="ph">Portrait</div><h3 data-am="ጸሐፊ">Secretary</h3><p>[ Name ]</p></div>
-      <div class="leader"><div class="ph">Portrait</div><h3 data-am="ገንዘብ ያዥ (2)">Treasurers (2)</h3><p>[ Names ]</p></div>
-      <div class="leader"><div class="ph">Portrait</div><h3 data-am="የአጋር አካላት ተጠሪ">Partner Relations</h3><p>[ Name ]</p></div>
-      <div class="leader"><div class="ph">Portrait</div><h3 data-am="የሚሽን ተጠሪ">Mission Lead</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ሰብሳቢ">Chairperson</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ምክትል ሰብሳቢ">Vice Chairperson</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ጸሐፊ">Secretary</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ገንዘብ ያዥ (2)">Treasurers (2)</h3><p>[ Names ]</p></div>
+      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="የአጋር አካላት ተጠሪ">Partner Relations</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="የሚሽን ተጠሪ">Mission Lead</h3><p>[ Name ]</p></div>
     </div>
   </div>
 </section>
@@ -314,13 +399,36 @@ footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,
       </form>
     </div>
     <div class="reveal">
-      <h2 style="font-size:1.5rem" data-am="በማህበራዊ ሚዲያ ይከታተሉን">Follow us online</h2>
+      <h2 style="font-size:1.8rem; margin-top: 1rem;" data-am="በማህበራዊ ሚዲያ ይከታተሉን">Follow us online</h2>
       <p data-am="ምሩቃንም የራሳቸው የቴሌግራም ግሩፕ አላቸው።">Alumni also have their own Telegram group.</p>
       <ul class="channels">
-        <li>Telegram <a href="#">&rarr;</a></li>
-        <li>Facebook <a href="#">&rarr;</a></li>
-        <li>Instagram <a href="#">&rarr;</a></li>
-        <li>YouTube <a href="#">&rarr;</a></li>
+        <li class="ch-tg">
+          <a href="https://t.me/+rOI5eDd4aQQ5NTVk" target="_blank" rel="noopener noreferrer">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              Telegram
+            </div>
+            <span>&nearr;</span>
+          </a>
+        </li>
+        <li class="ch-ig">
+          <a href="https://www.instagram.com/hu_referral_fellowship" target="_blank" rel="noopener noreferrer">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              Instagram
+            </div>
+            <span>&nearr;</span>
+          </a>
+        </li>
+        <li class="ch-tk">
+          <a href="https://www.tiktok.com/@hu_referral_fellowship" target="_blank" rel="noopener noreferrer">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+              TikTok
+            </div>
+            <span>&nearr;</span>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -339,19 +447,21 @@ const root=document.documentElement;
 let lang='en';
 const T=document.querySelectorAll('[data-am]');
 T.forEach(el=>el.dataset.en=el.innerHTML);
-const ph={en:{n:'Name',e:'Email',m:'Message'},am:{}};
+
 function setLang(l){
   lang=l;root.lang=l;
   T.forEach(el=>el.innerHTML=l==='am'?el.dataset.am:el.dataset.en);
   document.getElementById('langBtn').textContent=l==='am'?'EN':'አማ';
-  syncTheme();
   try{localStorage.setItem('hu-lang',l)}catch(e){}
 }
 document.getElementById('langBtn').onclick=()=>setLang(lang==='en'?'am':'en');
 
 const tb=document.getElementById('themeToggle');
 const isDark=()=>root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
-function syncTheme(){tb.textContent=isDark()?(lang==='am'?'ብርሃን':'Light'):(lang==='am'?'ጨለማ':'Dark')}
+const sunIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+const moonIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+
+function syncTheme(){tb.innerHTML=isDark()?sunIcon:moonIcon;}
 try{const s=localStorage.getItem('hu-theme');if(s)root.dataset.theme=s}catch(e){}
 tb.onclick=()=>{const n=isDark()?'light':'dark';root.dataset.theme=n;try{localStorage.setItem('hu-theme',n)}catch(e){}syncTheme()};
 syncTheme();
@@ -368,7 +478,6 @@ const secs=[...document.querySelectorAll('section[id]')],navA=[...links.querySel
 addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))},{passive:true});
 document.getElementById('yr').textContent=new Date().getFullYear();
 
-// Put the fellowship's real email here to connect the contact form
 const CONTACT_EMAIL='';
 document.getElementById('form').addEventListener('submit',e=>{
   e.preventDefault();const f=e.target,note=document.getElementById('note2');
