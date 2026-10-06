@@ -1,1 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HU Referral Fellowship</title>
+    <style>
+        :root {
+            --primary-color: #1a4b9c; /* Deep blue from logo */
+            --secondary-color: #2b6cb0;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --border-color: #e2e8f0;
+            --placeholder-bg: #cbd5e1;
+            --placeholder-text: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
 
+        [data-theme="dark"] {
+            --primary-color: #63b3ed; /* Lighter blue for dark mode contrast */
+            --secondary-color: #4299e1;
+            --bg-color: #0f172a;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --card-bg: #1e293b;
+            --nav-bg: rgba(15, 23, 42, 0.95);
+            --border-color: #334155;
+            --placeholder-bg: #334155;
+            --placeholder-text: #94a3b8;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3 { font-weight: 700; color: var(--primary-color); margin-bottom: 1rem; }
+        h1 { font-size: 3rem; line-height: 1.2; }
+        h2 { font-size: 2.25rem; text-align: center; margin-bottom: 2rem; position: relative; }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+        p { color: var(--text-muted); margin-bottom: 1rem; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .logo-area { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.2rem; color: var(--primary-color);}
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary-color); }
+        
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle:hover { background: var(--primary-color); color: white; }
+
+        /* Layout & Sections */
+        section {
+            padding: 6rem 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Image Placeholders */
+        .img-placeholder {
+            background-color: var(--placeholder-bg);
+            color: var(--placeholder-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px dashed var(--border-color);
+            width: 100%;
+        }
+
+        /* Hero / Header */
+        header {
+            padding: 10rem 5% 6rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+        .hero-img-placeholder { width: 100%; max-width: 800px; height: 400px; margin-top: 2rem; }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .card .img-placeholder { height: 200px; margin-bottom: 1.5rem; border: none; }
+        .leader-card { text-align: center; }
+        .leader-card .img-placeholder { height: 250px; border-radius: 50%; width: 250px; margin: 0 auto 1.5rem; }
+
+        /* Form & Contact */
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+        input, textarea {
+            width: 100%; padding: 0.8rem; border: 1px solid var(--border-color);
+            border-radius: 6px; background: var(--bg-color); color: var(--text-main);
+            font-family: inherit;
+        }
+        button[type="submit"] {
+            background: var(--primary-color); color: white; padding: 1rem;
+            border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: opacity 0.3s;
+        }
+        button[type="submit"]:hover { opacity: 0.9; }
+
+        .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .social-links a { 
+            display: inline-block; padding: 0.5rem 1rem; 
+            background: var(--primary-color); color: white; 
+            text-decoration: none; border-radius: 4px; transition: opacity 0.2s;
+        }
+        .social-links a:hover { opacity: 0.8; }
+
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; /* Add a hamburger menu for full mobile support later */ }
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <svg width="30" height="30" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="50" r="45" opacity="0.1"/>
+                <path d="M50 10 L50 90 M20 30 L80 30" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            HU Referral Fellowship
+        </div>
+        <ul class="nav-links">
+            <li><a href="#history">History</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#teams">Teams</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#leaders">Leaders</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle">Toggle Dark Mode</button>
+    </nav>
+
+    <header class="fade-in">
+        <h1>Welcome to HU Referral Fellowship</h1>
+        <p>A medical community united in faith, learning, and service.</p>
+        <div class="img-placeholder hero-img-placeholder">[ Group Photo / Campus Picture Placeholder ]</div>
+    </header>
+
+    <section id="history" class="fade-in">
+        <h2>Our History</h2>
+        <div class="grid-2">
+            <div>
+                <p>Founded on the grounds of Hawassa University's medical campus, our fellowship began as a small gathering of health science students seeking to balance rigorous academics with spiritual growth.</p>
+                <p>Over the years, we have grown into a vibrant community, providing a foundation of support, spiritual guidance, and ethical grounding for future medical professionals.</p>
+            </div>
+            <div class="img-placeholder" style="height: 300px;">[ Historic Photo / Early Days Placeholder ]</div>
+        </div>
+    </section>
+
+    <section id="about" class="fade-in">
+        <h2>About Us</h2>
+        <div class="grid-2" style="direction: rtl;">
+            <div style="direction: ltr;">
+                <p>The HU Referral Fellowship is a Christian organization dedicated to supporting students through their medical and academic journeys.</p>
+                <p>We believe in holistic development—nurturing the mind through science and the spirit through faith. We aim to equip healthcare leaders who will serve with compassion and excellence.</p>
+            </div>
+            <div class="img-placeholder" style="height: 300px;">[ Fellowship Gathering Photo Placeholder ]</div>
+        </div>
+    </section>
+
+    <section id="teams" class="fade-in">
+        <h2>Our 7 Teams</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">Our fellowship operates through specialized teams, each contributing to our spiritual growth and community outreach.</p>
+        <div class="grid-3">
+            <div class="card">
+                <div class="img-placeholder">[ Team 1 Image ]</div>
+                <h3>1. Prayer & Intercession</h3>
+                <p>Dedicated to seeking spiritual guidance and interceding for the campus, students, and hospital patients.</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">[ Team 2 Image ]</div>
+                <h3>2. Choir & Worship</h3>
+                <p>Leading the congregation in praise and creating an atmosphere of worship during our gatherings.</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">[ Team 3 Image ]</div>
+                <h3>3. Evangelism</h3>
+                <p>Sharing the message of hope and faith across the campus and within the broader community.</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">[ Team 4 Image ]</div>
+                <h3>4. Teaching & Discipleship</h3>
+                <p>Providing biblical foundations, study sessions, and mentoring for spiritual maturity.</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">[ Team 5 Image ]</div>
+                <h3>5. Charity & Welfare</h3>
+                <p>Organizing support for students in need and showing compassion through practical assistance.</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">[ Team 6 Image ]</div>
+                <h3>6. Media & Communications</h3>
+                <p>Managing audio/visuals, digital presence, and ensuring clear communication within the fellowship.</p>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">[ Team 7 Image ]</div>
+                <h3>7. Sisterhood / Brotherhood</h3>
+                <p>Fostering deep, supportive relationships and gender-specific counseling and fellowship.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="fade-in">
+        <h2>Yearly Events</h2>
+        <div class="grid-2">
+            <div class="img-placeholder" style="height: 400px;">[ Major Event / Conference Photo Placeholder ]</div>
+            <div>
+                <h3>Annual Conference</h3>
+                <p>A multi-day gathering featuring guest speakers, intensive worship, and clinical-spiritual integration panels.</p>
+                <h3>Welcome Night</h3>
+                <p>A special evening dedicated to receiving freshers, orienting them to campus life, and introducing them to the fellowship family.</p>
+                <h3>Graduation Thanksgiving</h3>
+                <p>Celebrating the hard work of our graduating medical professionals and sending them off with prayer.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="fade-in">
+        <h2>Mission Service</h2>
+        <div class="grid-2">
+            <div>
+                <p>As future healthcare professionals, our mission goes beyond the campus. We conduct regular outreach programs in the surrounding areas.</p>
+                <p>From organizing medical camps and health education seminars to visiting patients in the referral hospital, we integrate our medical knowledge with our calling to serve the vulnerable.</p>
+            </div>
+            <div class="img-placeholder" style="height: 300px;">[ Outreach / Medical Camp Photo Placeholder ]</div>
+        </div>
+    </section>
+
+    <section id="leaders" class="fade-in">
+        <h2>Meet Our Leaders</h2>
+        <div class="grid-4">
+            <div class="card leader-card">
+                <div class="img-placeholder">[ Portrait ]</div>
+                <h3>Leader Name</h3>
+                <p>Chairperson</p>
+            </div>
+            <div class="card leader-card">
+                <div class="img-placeholder">[ Portrait ]</div>
+                <h3>Leader Name</h3>
+                <p>Vice Chairperson</p>
+            </div>
+            <div class="card leader-card">
+                <div class="img-placeholder">[ Portrait ]</div>
+                <h3>Leader Name</h3>
+                <p>Secretary</p>
+            </div>
+            <div class="card leader-card">
+                <div class="img-placeholder">[ Portrait ]</div>
+                <h3>Leader Name</h3>
+                <p>Finance Head</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2>Contact & Social Media</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Get in Touch</h3>
+                <p>Have questions or want to join us? Send us a message.</p>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div>
+                <h3>Connect With Us</h3>
+                <p>Follow our journey, stay updated on events, and interact with our community online.</p>
+                <div class="social-links">
+                    <a href="#">Telegram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                </div>
+                <div class="img-placeholder" style="height: 200px; margin-top: 2rem;">[ Social Media Graphic / QR Code Placeholder ]</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+        });
+
+        // Scroll Animation Logic (Intersection Observer)
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
