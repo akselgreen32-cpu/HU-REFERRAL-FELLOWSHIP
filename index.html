@@ -1,391 +1,380 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HU Referral Fellowship</title>
-    <style>
-        :root {
-            --primary-color: #1a4b9c; /* Deep blue from logo */
-            --secondary-color: #2b6cb0;
-            --bg-color: #f8fafc;
-            --text-main: #1e293b;
-            --text-muted: #475569;
-            --card-bg: #ffffff;
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --border-color: #e2e8f0;
-            --placeholder-bg: #cbd5e1;
-            --placeholder-text: #475569;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HU-CMHS Evangelical Christian Students Fellowship | የሀዋሳ ዩኒቨርሲቲ ወንጌላውያን ክርስቲያን ተማሪዎች ኅብረት</title>
+<meta name="description" content="Hawassa University College of Medicine and Health Science Evangelical Christian Students Fellowship. True Love, One Family, Strong Fellowship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1a4b9c;--secondary:#2b6cb0;--bg:#f8fafc;--alt:#eef2f8;--text:#1e293b;--muted:#475569;
+  --card:#ffffff;--line:#e2e8f0;--nav:rgba(248,250,252,.92);--ph:#cbd5e1;--ph-text:#475569;--foot:#0f2a5c;--on-primary:#fff;
+  --sans:'Inter','Noto Sans Ethiopic',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --serif:'Source Serif 4','Noto Sans Ethiopic',Georgia,'Times New Roman',serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--primary:#63b3ed;--secondary:#4299e1;--bg:#0f172a;--alt:#131d33;--text:#f1f5f9;--muted:#94a3b8;--card:#1e293b;--line:#334155;--nav:rgba(15,23,42,.92);--ph:#334155;--ph-text:#94a3b8;--foot:#0a1020;--on-primary:#0f172a}
+}
+:root[data-theme="dark"]{--primary:#63b3ed;--secondary:#4299e1;--bg:#0f172a;--alt:#131d33;--text:#f1f5f9;--muted:#94a3b8;--card:#1e293b;--line:#334155;--nav:rgba(15,23,42,.92);--ph:#334155;--ph-text:#94a3b8;--foot:#0a1020;--on-primary:#0f172a}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--secondary);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);color:var(--text);line-height:1.25;font-weight:700}
+p{color:var(--muted)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 6%}
 
-        [data-theme="dark"] {
-            --primary-color: #63b3ed; /* Lighter blue for dark mode contrast */
-            --secondary-color: #4299e1;
-            --bg-color: #0f172a;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --card-bg: #1e293b;
-            --nav-bg: rgba(15, 23, 42, 0.95);
-            --border-color: #334155;
-            --placeholder-bg: #334155;
-            --placeholder-text: #94a3b8;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-        }
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;padding-top:env(safe-area-inset-top,0px);box-sizing:content-box}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--primary);line-height:1.2}
+.brand small{display:block;font-family:var(--sans);font-weight:500;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.links{display:flex;gap:1.4rem;list-style:none}
+.links a{text-decoration:none;font-size:.88rem;font-weight:500;color:var(--muted);padding:.4rem 0;border-bottom:2px solid transparent;transition:.2s}
+.links a:hover,.links a.active{color:var(--primary);border-color:var(--primary)}
+.tools{display:flex;gap:.5rem}
+.sq{background:none;border:1px solid var(--line);color:var(--text);height:38px;min-width:38px;padding:0 .8rem;border-radius:4px;cursor:pointer;font:600 .8rem var(--sans);transition:.2s}
+.sq:hover{border-color:var(--primary);color:var(--primary)}
+#menuBtn{display:none;padding:0}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+.btn{display:inline-block;text-decoration:none;font:600 .92rem var(--sans);padding:.85rem 1.7rem;border-radius:4px;border:1px solid var(--primary);transition:.2s;cursor:pointer}
+.btn.solid{background:var(--primary);color:var(--on-primary)}
+.btn.solid:hover{opacity:.9}
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            overflow-x: hidden;
-        }
+/* hero */
+.hero{text-align:center;color:#fff;background:linear-gradient(135deg,#1a4b9c 0%,#12356f 100%);padding:calc(68px + 7rem + env(safe-area-inset-top,0px)) 0 6rem}
+.hero .k{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#bcd3f5;margin-bottom:1.2rem}
+.hero h1{color:#fff;font-size:clamp(2rem,5vw,3.6rem);max-width:18ch;margin:0 auto 1.3rem;letter-spacing:-.005em}
+.hero p{color:#d6e4fa;max-width:60ch;margin:0 auto 2rem;font-size:1.05rem}
+.hero .cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.hero .btn{border-color:#fff;color:#fff;background:transparent}
+.hero .btn.solid{background:#fff;color:#1a4b9c}
+.hero .btn:hover{background:rgba(255,255,255,.14)}.hero .btn.solid:hover{background:#eaf1fc}
+.motto{margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.25);font-size:.95rem;color:#bcd3f5}
+.motto b{display:block;color:#fff;font-weight:500}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* sections */
+section{padding:6rem 0}
+section.alt{background:var(--alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.label{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--secondary);margin-bottom:.9rem}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem);margin-bottom:1.2rem}
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center}
+.split p{margin-bottom:1rem}
+.intro{max-width:660px;margin-bottom:2.8rem}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+.ph{background:var(--ph);color:var(--ph-text);display:grid;place-items:center;text-align:center;padding:1rem;border:1px solid var(--line);border-radius:4px;width:100%;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;aspect-ratio:4/3}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:1.8rem}
+.pillars div{padding:1rem 1rem 0 0;font-family:var(--serif);font-weight:700;color:var(--primary)}
 
-        /* Typography */
-        h1, h2, h3 { font-weight: 700; color: var(--primary-color); margin-bottom: 1rem; }
-        h1 { font-size: 3rem; line-height: 1.2; }
-        h2 { font-size: 2.25rem; text-align: center; margin-bottom: 2rem; position: relative; }
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            margin: 0.5rem auto 0;
-            border-radius: 2px;
-        }
-        p { color: var(--text-muted); margin-bottom: 1rem; }
+/* schedule */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.cards>div{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--primary);padding:1.5rem 1.4rem}
+.cards span{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--secondary)}
+.cards h3{font-size:1.08rem;margin:.4rem 0 .6rem}
+.cards b{display:block;color:var(--primary);font-size:.92rem;font-weight:600}
+.cards p{font-size:.88rem;margin:.2rem 0 0}
+.note{font-size:.85rem;margin-top:1.4rem}
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-        
-        .logo-area { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.2rem; color: var(--primary-color);}
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--primary-color); }
-        
-        .theme-toggle {
-            background: none;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .theme-toggle:hover { background: var(--primary-color); color: white; }
+/* teams */
+.teams{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
+.team{padding:2rem 1.7rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-top:1px solid var(--line);margin-top:-1px;background:var(--card);transition:background .25s}
+.team:hover{background:var(--alt)}
+.team .n{font-family:var(--serif);font-weight:600;color:var(--secondary);display:block;margin-bottom:1rem}
+.team h3{font-size:1.12rem;margin-bottom:.5rem}
+.team p{font-size:.92rem;margin:0}
 
-        /* Layout & Sections */
-        section {
-            padding: 6rem 5% 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Image Placeholders */
-        .img-placeholder {
-            background-color: var(--placeholder-bg);
-            color: var(--placeholder-text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px dashed var(--border-color);
-            width: 100%;
-        }
+/* events */
+.events{border-top:1px solid var(--line)}
+.event{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;padding:1.3rem 0;border-bottom:1px solid var(--line)}
+.event .n{font-family:var(--serif);font-weight:600;color:var(--secondary)}
+.event h3{font-size:1.08rem;margin-bottom:.2rem}
+.event p{margin:0;font-size:.92rem}
 
-        /* Hero / Header */
-        header {
-            padding: 10rem 5% 6rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-        }
-        .hero-img-placeholder { width: 100%; max-width: 800px; height: 400px; margin-top: 2rem; }
+/* lists */
+.ticks{list-style:none;border-top:1px solid var(--line)}
+.ticks li{padding:.9rem 0 .9rem 1.6rem;border-bottom:1px solid var(--line);position:relative;color:var(--muted);font-size:.95rem}
+.ticks li::before{content:'';position:absolute;left:0;top:1.35rem;width:8px;height:8px;background:var(--primary)}
 
-        /* Grid Layouts */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+/* leaders */
+.leaders{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+.leader .ph{aspect-ratio:1;margin-bottom:.9rem}
+.leader h3{font-size:1.05rem}
+.leader p{font-size:.85rem;margin:0}
 
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .card .img-placeholder { height: 200px; margin-bottom: 1.5rem; border: none; }
-        .leader-card { text-align: center; }
-        .leader-card .img-placeholder { height: 250px; border-radius: 50%; width: 250px; margin: 0 auto 1.5rem; }
+/* contact */
+form{display:grid;gap:1rem}
+label{font-size:.8rem;font-weight:600;display:block;margin-bottom:.35rem}
+input,textarea{width:100%;padding:.8rem .9rem;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--text);font:inherit}
+input:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 20%,transparent)}
+#note2{font-size:.88rem;min-height:1.3rem;color:var(--primary);margin:0}
+.channels{list-style:none;border-top:1px solid var(--line);margin:1.4rem 0}
+.channels li{display:flex;justify-content:space-between;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.channels a{text-decoration:none;font-weight:600;color:var(--primary)}
+.channels a:hover{text-decoration:underline}
 
-        /* Form & Contact */
-        .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-        input, textarea {
-            width: 100%; padding: 0.8rem; border: 1px solid var(--border-color);
-            border-radius: 6px; background: var(--bg-color); color: var(--text-main);
-            font-family: inherit;
-        }
-        button[type="submit"] {
-            background: var(--primary-color); color: white; padding: 1rem;
-            border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: opacity 0.3s;
-        }
-        button[type="submit"]:hover { opacity: 0.9; }
+footer{background:var(--foot);color:#aebfdc;padding:3.2rem 0 2rem;text-align:center}
+footer strong{display:block;font-family:var(--serif);color:#fff;font-size:1.1rem;margin-bottom:.4rem}
+footer p{color:#aebfdc;font-size:.9rem;margin:0 auto .3rem;max-width:60ch}
+footer .copy{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.14);font-size:.8rem;color:#8196bb}
 
-        .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
-        .social-links a { 
-            display: inline-block; padding: 0.5rem 1rem; 
-            background: var(--primary-color); color: white; 
-            text-decoration: none; border-radius: 4px; transition: opacity 0.2s;
-        }
-        .social-links a:hover { opacity: 0.8; }
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
 
-        /* Animations */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links { display: none; /* Add a hamburger menu for full mobile support later */ }
-            .grid-2 { grid-template-columns: 1fr; }
-            h1 { font-size: 2.2rem; }
-        }
-    </style>
+@media (max-width:900px){
+  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s}
+  .links.open{max-height:460px}
+  .links a{display:block;padding:.9rem 6%;border:0}
+  #menuBtn{display:block}
+  .split{grid-template-columns:1fr;gap:2.5rem}
+  .cards,.teams{grid-template-columns:1fr 1fr}
+  .leaders{grid-template-columns:1fr 1fr}
+  section{padding:4.5rem 0}
+  .hero{padding-top:calc(68px + 4.5rem + env(safe-area-inset-top,0px));padding-bottom:4.5rem}
+}
+@media (max-width:560px){.cards,.teams,.pillars{grid-template-columns:1fr}.brand small{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true"><rect x="4" y="4" width="92" height="92" rx="8" fill="none" stroke="currentColor" stroke-width="6"/><path d="M50 22v56M28 40h44" stroke="currentColor" stroke-width="9" stroke-linecap="square"/></svg>
+      <span>HU-CMHS Fellowship<small data-am="ወንጌላውያን ክርስቲያን ተማሪዎች ኅብረት">Evangelical Christian Students</small></span>
+    </a>
+    <ul class="links" id="links">
+      <li><a href="#about" data-am="ስለ እኛ">About</a></li>
+      <li><a href="#schedule" data-am="መርሃግብር">Schedule</a></li>
+      <li><a href="#teams" data-am="ዘርፎች">Teams</a></li>
+      <li><a href="#events" data-am="ዝግጅቶች">Events</a></li>
+      <li><a href="#mission" data-am="ሚሲዮን">Mission</a></li>
+      <li><a href="#leaders" data-am="መሪዎች">Leaders</a></li>
+      <li><a href="#contact" data-am="ያግኙን">Contact</a></li>
+    </ul>
+    <div class="tools">
+      <button class="sq" id="langBtn" aria-label="Language / ቋንቋ">አማ</button>
+      <button class="sq" id="themeToggle" aria-label="Toggle theme">Dark</button>
+      <button class="sq" id="menuBtn" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </div>
+</nav>
 
-    <nav>
-        <div class="logo-area">
-            <svg width="30" height="30" viewBox="0 0 100 100" fill="currentColor">
-                <circle cx="50" cy="50" r="45" opacity="0.1"/>
-                <path d="M50 10 L50 90 M20 30 L80 30" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-            </svg>
-            HU Referral Fellowship
-        </div>
-        <ul class="nav-links">
-            <li><a href="#history">History</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#teams">Teams</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#leaders">Leaders</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="theme-toggle" id="themeToggle">Toggle Dark Mode</button>
-    </nav>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="k" data-am="ሀዋሳ ዩኒቨርሲቲ · ህክምናና ጤና ሳይንስ ኮሌጅ">Hawassa University · College of Medicine &amp; Health Science</div>
+    <h1 data-am="እውነተኛ ፍቅር፣ አንድ ቤተሠብ፣ ጠንካራ ኅብረት">True Love, One Family, Strong Fellowship</h1>
+    <p data-am="የሀዋሳ ዩኒቨርሲቲ ህክምናና ጤና ሳይንስ ኮሌጅ ወንጌላውያን ክርስቲያን ተማሪዎች ኅብረት (HU-CMHS-ECSF)">Hawassa University College of Medicine and Health Science Evangelical Christian Students Fellowship (HU-CMHS-ECSF)</p>
+    <div class="cta"><a class="btn solid" href="#schedule" data-am="ተቀላቀሉን">Join Us</a><a class="btn" href="#teams" data-am="ዘርፎቻችን">Our Teams</a></div>
+    <div class="motto"><b>True Love &middot; One Family &middot; Strong Fellowship</b>እውነተኛ ፍቅር &middot; አንድ ቤተሠብ &middot; ጠንካራ ኅብረት</div>
+  </div>
+</header>
 
-    <header class="fade-in">
-        <h1>Welcome to HU Referral Fellowship</h1>
-        <p>A medical community united in faith, learning, and service.</p>
-        <div class="img-placeholder hero-img-placeholder">[ Group Photo / Campus Picture Placeholder ]</div>
-    </header>
+<section id="about">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="label" data-am="ስለ እኛ">About Us</div>
+      <h2 data-am="እኛ ማን ነን">Who we are</h2>
+      <p data-am="ኅብረታችን በ1997 ዓ.ም በግቢው ውስጥ በነበሩ ጥቂት ክርስቲያን ተማሪዎች ተመሠረተ፤ በ3 ዘርፎች ጀምሮ ዛሬ በ7 ዘርፎች ያገለግላል። ኅብረታችን በኢትዮጵያ ወንጌላውያን ተማሪዎችና ምሩቃን ማህበር (ኢቫሱ) ሥር ነው።">Our fellowship was founded in 1997 E.C. by a small group of Christian students on campus. It began with three teams and today serves through seven. We are part of the Evangelical Students and Graduates Union of Ethiopia (EvaSUE).</p>
+      <p data-am="ዓላማችን ተማሪዎች በግል መንፈሳዊ ህይወት እንዲያድጉ፣ በኅብረት እግዚአብሔርን እንዲያመልኩና ለጓደኞቻቸው ወንጌልን እንዲያካፍሉ መርዳት ነው፤ ከምረቃ በኋላም በቤተክርስቲያን በንቃት እንዲሳተፉ ማብቃት።">Our aim is to help students grow in personal spiritual life, worship God together, and share Christ with the friends around them, and to equip every member to take an active part in the church after graduation.</p>
+      <div class="pillars">
+        <div data-am="መንፈሳዊ እድገት">Spiritual Growth</div>
+        <div data-am="ቤተሰባዊ ኅብረት">Family Fellowship</div>
+        <div data-am="ወንጌልና ሚሲዮን">Gospel &amp; Mission</div>
+      </div>
+    </div>
+    <div class="ph reveal">Fellowship Gathering Photo</div>
+  </div>
+</section>
 
-    <section id="history" class="fade-in">
-        <h2>Our History</h2>
-        <div class="grid-2">
-            <div>
-                <p>Founded on the grounds of Hawassa University's medical campus, our fellowship began as a small gathering of health science students seeking to balance rigorous academics with spiritual growth.</p>
-                <p>Over the years, we have grown into a vibrant community, providing a foundation of support, spiritual guidance, and ethical grounding for future medical professionals.</p>
-            </div>
-            <div class="img-placeholder" style="height: 300px;">[ Historic Photo / Early Days Placeholder ]</div>
-        </div>
-    </section>
+<section id="schedule" class="alt">
+  <div class="wrap">
+    <div class="intro reveal">
+      <div class="label" data-am="ሳምንታዊ መርሃግብር">Weekly Schedule</div>
+      <h2 data-am="ኑ፣ ከእኛ ጋር ይሁኑ">Come and be with us</h2>
+      <p data-am="በየሳምንቱ አምልኮ፣ የመጽሐፍ ቅዱስ ጥናትና ጸሎት አለን። ሁሉም ተማሪ እንኳን ደህና መጣችሁ።">Every week we gather for worship, Bible study, and prayer. All students are welcome.</p>
+    </div>
+    <div class="cards reveal">
+      <div><span data-am="ዐርብ">Friday</span><h3 data-am="የኅብረቱ አምልኮ">Fellowship Worship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
+      <div><span data-am="ሰኞ">Monday</span><h3 data-am="የነባር ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, Returning Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
+      <div><span data-am="ማክሰኞ">Tuesday</span><h3 data-am="የአዲስ ገቢ ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, New Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሪፈራል መካነ ኢየሱስ ቤ/ክ">Referral Mekane Yesus Church</p></div>
+      <div><span data-am="ረቡዕ">Wednesday</span><h3 data-am="ሌቫይትስ የኅብረት ጊዜ">Levites Team Fellowship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ህይወት ብርሃን ጽ/ቤት">Hiwot Berhan Office</p></div>
+      <div><span data-am="ሐሙስ">Thursday</span><h3 data-am="የሌሎች 6 ዘርፎች የኅብረት ጊዜ">Fellowship of the Other Six Teams</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="መካነ ኢየሱስ፣ ሆጎዋ እና ህይወት ብርሃን ጽ/ቤት">Mekane Yesus, Hogwa, and Hiwot Berhan Office</p></div>
+      <div><span data-am="ሰኞ እስከ ቅዳሜ">Monday to Saturday</span><h3 data-am="የማለዳና የምሳ ሰዓት ጸሎት">Morning Devotion &amp; Lunch Prayer</h3><b data-am="ማለዳ 12:00-1:00 · ምሳ 6:00-7:00">Morning 12:00-1:00 · Lunch 6:00-7:00</b><p data-am="ሁሉም አባል ይሳተፋል">Open to every member</p></div>
+    </div>
+    <p class="note" data-am="ሰዓቶች በኢትዮጵያ አቆጣጠር ናቸው።">All times follow the Ethiopian clock.</p>
+  </div>
+</section>
 
-    <section id="about" class="fade-in">
-        <h2>About Us</h2>
-        <div class="grid-2" style="direction: rtl;">
-            <div style="direction: ltr;">
-                <p>The HU Referral Fellowship is a Christian organization dedicated to supporting students through their medical and academic journeys.</p>
-                <p>We believe in holistic development—nurturing the mind through science and the spirit through faith. We aim to equip healthcare leaders who will serve with compassion and excellence.</p>
-            </div>
-            <div class="img-placeholder" style="height: 300px;">[ Fellowship Gathering Photo Placeholder ]</div>
-        </div>
-    </section>
+<section id="teams">
+  <div class="wrap">
+    <div class="intro reveal">
+      <div class="label" data-am="ዘርፎቻችን">Our Teams</div>
+      <h2 data-am="ሰባት ዘርፎች፣ አንድ ጥሪ">Seven teams, one shared calling</h2>
+      <p data-am="አዲስ አባላት ኅብረቱን ከተቀላቀሉ ከሦስት ወር በኋላ አንድ ዘርፍ ይመርጣሉ።">New members choose a team after their first three months in the fellowship.</p>
+    </div>
+    <div class="teams reveal">
+      <div class="team"><span class="n">01</span><h3 data-am="አክሽን ዘርፍ">Action Team</h3><p data-am="ፍቅርን በተግባር ይገልጣል፤ ህሙማንን መጠየቅ፣ የጎዳና ልጆች፣ የቤተሰብና የእስረኞች አገልግሎት።">Shows love in practice through hospital ward visits, street children, needy families, and prison visits.</p></div>
+      <div class="team"><span class="n">02</span><h3 data-am="ቤርያ ዘርፍ">Berea Team</h3><p data-am="መጽሐፍ ቅዱስ ተኮር፤ አዳዲስ አማኞችን መከታተልና ማስተማር፣ የጥናት ማስተባበርና የዕለት እንጀራ።">Bible-centered ministry: follow-up and basic teaching for new believers, Bible study coordination, and Daily Bread.</p></div>
+      <div class="team"><span class="n">03</span><h3 data-am="የወንጌል ማስተማበር ዘርፍ (EMT)">Evangelism Mobilizing Team</h3><p data-am="በግቢና ከግቢ ውጭ ወንጌልን ማድረስ ይመራል፤ ያስተባብራል።">Leads and mobilizes evangelism on and off campus through personal sharing, Prayer-Care-Share, and outreach.</p></div>
+      <div class="team"><span class="n">04</span><h3 data-am="ኬብሮን ኳየር ዘርፍ">Kebron Choir Team</h3><p data-am="ኅብረቱን በዝማሬ አምልኮ ይመራል፤ ግጥምና ዜማ መድረስንና የሙዚቃ መሳሪያዎችን ያሰለጥናል።">Leads worship through song and develops members in music, songwriting, and instruments.</p></div>
+      <div class="team"><span class="n">05</span><h3 data-am="ሌቫይትስ የስነጽሑፍና የድራማ ዘርፍ">Levites Literature &amp; Drama</h3><p data-am="በጽሑፍ፣ በስነጽሑፍ ምሽቶችና በድራማ ኅብረቱን ያንጻል።">Builds up the fellowship through written pieces, literature nights, and drama.</p></div>
+      <div class="team"><span class="n">06</span><h3 data-am="የጸሎት ማስተማበር ዘርፍ (PMT)">Prayer Mobilizing Team</h3><p data-am="ኅብረቱን ለጸሎት ያስተባብራል፤ የማለዳና የምሳ ጸሎት፣ የጸሎት ሳምንትና የጾም ቀናትን ያዘጋጃል።">Mobilizes the whole fellowship to pray: daily devotion, lunch prayer, a prayer week, and fasting days.</p></div>
+      <div class="team"><span class="n">07</span><h3 data-am="ዌልፌር ዘርፍ">Welfare Team</h3><p data-am="የማማከር አገልግሎት፤ የጠፉ አባላትን መከታተል፣ በቴሌግራም ቦት ምክር፣ መጽሐፍ ማዋስ።">Counseling and care: follows up on members who drift away, offers counseling (including via a Telegram bot), and lends spiritual books.</p></div>
+      <div class="team" style="grid-column:span 2"><span class="n" data-am="ቋሚ ኮሚቴዎች">Standing Committees</span><h3 data-am="ዲጂታልስ · ፈንድ · ሚሽን">Digitals &middot; Fundraising &middot; Mission</h3><p data-am="ዲጂታልስ ግራፊክስ፣ ቪዲዮ፣ ፎቶና ሳውንድ ይሠራል፤ ፈንድ ኮሚቴ ገንዘብ ያሰባስባል፤ ሚሽን ኮሚቴ ዓመታዊውን ሚሲዮናዊ ጉዞ ያዘጋጃል።">Digitals handles graphics, video, photo, and sound. The Fund committee raises resources, and the Mission committee organizes the annual mission trip.</p></div>
+    </div>
+  </div>
+</section>
 
-    <section id="teams" class="fade-in">
-        <h2>Our 7 Teams</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">Our fellowship operates through specialized teams, each contributing to our spiritual growth and community outreach.</p>
-        <div class="grid-3">
-            <div class="card">
-                <div class="img-placeholder">[ Team 1 Image ]</div>
-                <h3>1. Prayer & Intercession</h3>
-                <p>Dedicated to seeking spiritual guidance and interceding for the campus, students, and hospital patients.</p>
-            </div>
-            <div class="card">
-                <div class="img-placeholder">[ Team 2 Image ]</div>
-                <h3>2. Choir & Worship</h3>
-                <p>Leading the congregation in praise and creating an atmosphere of worship during our gatherings.</p>
-            </div>
-            <div class="card">
-                <div class="img-placeholder">[ Team 3 Image ]</div>
-                <h3>3. Evangelism</h3>
-                <p>Sharing the message of hope and faith across the campus and within the broader community.</p>
-            </div>
-            <div class="card">
-                <div class="img-placeholder">[ Team 4 Image ]</div>
-                <h3>4. Teaching & Discipleship</h3>
-                <p>Providing biblical foundations, study sessions, and mentoring for spiritual maturity.</p>
-            </div>
-            <div class="card">
-                <div class="img-placeholder">[ Team 5 Image ]</div>
-                <h3>5. Charity & Welfare</h3>
-                <p>Organizing support for students in need and showing compassion through practical assistance.</p>
-            </div>
-            <div class="card">
-                <div class="img-placeholder">[ Team 6 Image ]</div>
-                <h3>6. Media & Communications</h3>
-                <p>Managing audio/visuals, digital presence, and ensuring clear communication within the fellowship.</p>
-            </div>
-            <div class="card">
-                <div class="img-placeholder">[ Team 7 Image ]</div>
-                <h3>7. Sisterhood / Brotherhood</h3>
-                <p>Fostering deep, supportive relationships and gender-specific counseling and fellowship.</p>
-            </div>
-        </div>
-    </section>
+<section id="events" class="alt">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="label" data-am="ዓመታዊ ዝግጅቶች">Yearly Events</div>
+      <h2 data-am="ዓመታችንን የሚቀርጹ ጊዜያት">Moments that shape our year</h2>
+      <div class="events">
+        <div class="event"><span class="n">I</span><div><h3 data-am="የዘርፎች ሳምንት (Teams Week)">Teams Week</h3><p data-am="ሁለት ቀናት የጨዋታ፣ የአምልኮና የአንድነት ጊዜ፤ ምሩቃንም ይጋበዛሉ።">Two days of games, worship, and fellowship for members and invited alumni.</p></div></div>
+        <div class="event"><span class="n">II</span><div><h3 data-am="የአዲስ ተማሪዎች አቀባበል">Fresh Welcome</h3><p data-am="አዲስ ክርስቲያን ተማሪዎችን የምንቀበልበትና ወደ ኅብረቱ የምንቀላቅልበት ቀን።">The day we welcome new Christian students and bring them into the fellowship family.</p></div></div>
+        <div class="event"><span class="n">III</span><div><h3 data-am="ኮንፍረንስ">Conference</h3><p data-am="በዓመት ቢያንስ አንድ ጊዜ፣ ለ2-3 ቀናት በተጋባዥ ሰባኪና ዘማሪ።">At least once a year, over two to three days, with guest speakers and worship leaders.</p></div></div>
+        <div class="event"><span class="n">IV</span><div><h3 data-am="የባች ቀንና የተመራቂዎች ሽኝት">Batch Day &amp; Graduate Send-off</h3><p data-am="የባቹን አንድነት የምናጠናክርበትና ተመራቂዎችን በጸሎት የምንሸኝበት።">Strengthening each batch, and sending graduating students off with prayer and certificates.</p></div></div>
+        <div class="event"><span class="n">V</span><div><h3 data-am="ጠቅላላ መሪዎች ጉባኤ (Big Retreat)">Leaders Big Retreat</h3><p data-am="በአዲስ ዓመት መጀመሪያ ለ3 ቀናት የጸሎት፣ የግምገማና የዕቅድ ጊዜ፤ የዓመቱ መሪ ሃሳብም ይተዋወቃል።">Three days of prayer, review, and planning, where the year's Big Picture theme is introduced.</p></div></div>
+      </div>
+    </div>
+    <div class="ph reveal" style="aspect-ratio:4/4.6">Conference / Event Photo</div>
+  </div>
+</section>
 
-    <section id="events" class="fade-in">
-        <h2>Yearly Events</h2>
-        <div class="grid-2">
-            <div class="img-placeholder" style="height: 400px;">[ Major Event / Conference Photo Placeholder ]</div>
-            <div>
-                <h3>Annual Conference</h3>
-                <p>A multi-day gathering featuring guest speakers, intensive worship, and clinical-spiritual integration panels.</p>
-                <h3>Welcome Night</h3>
-                <p>A special evening dedicated to receiving freshers, orienting them to campus life, and introducing them to the fellowship family.</p>
-                <h3>Graduation Thanksgiving</h3>
-                <p>Celebrating the hard work of our graduating medical professionals and sending them off with prayer.</p>
-            </div>
-        </div>
-    </section>
+<section id="mission">
+  <div class="wrap split">
+    <div class="ph reveal">Outreach / Mission Trip Photo</div>
+    <div class="reveal">
+      <div class="label" data-am="ሚሲዮናዊ አገልግሎት">Mission Service</div>
+      <h2 data-am="ወንጌልን ወዳልሰሙ">Taking the gospel to the unreached</h2>
+      <p data-am="ከ2013 ዓ.ም ጀምሮ ወንጌል በስፋት ባልደረሰበት በደቡብ ኦሞ (ጸማይና ኤርቦሬ) ሚሲዮናውያንን እየላክን በየክረምቱ ሚሲዮናዊ ጉዞ እናደርጋለን።">Since 2013 E.C. we have sent missionaries to the Tsemay and Erbore areas of South Omo, where the gospel has not widely reached, and we run a mission trip every summer.</p>
+      <ul class="ticks">
+        <li data-am="ሚሲዮን የመላው ኅብረቱ የጋራ አገልግሎት ነው፤ መሪዎች ቢቀያየሩም አይቋረጥም።">Mission belongs to the whole fellowship and continues as leaders change.</li>
+        <li data-am="ለእያንዳንዱ አካባቢ ቢያንስ ለሦስት ዓመት ለማገልገል እንዘጋጃለን።">We commit to each area for at least three years.</li>
+        <li data-am="ምሩቃን በጸሎት፣ በገንዘብና በጉዞ ይሳተፋሉ።">Alumni take part through prayer, giving, and trips.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <section id="mission" class="fade-in">
-        <h2>Mission Service</h2>
-        <div class="grid-2">
-            <div>
-                <p>As future healthcare professionals, our mission goes beyond the campus. We conduct regular outreach programs in the surrounding areas.</p>
-                <p>From organizing medical camps and health education seminars to visiting patients in the referral hospital, we integrate our medical knowledge with our calling to serve the vulnerable.</p>
-            </div>
-            <div class="img-placeholder" style="height: 300px;">[ Outreach / Medical Camp Photo Placeholder ]</div>
-        </div>
-    </section>
+<section id="faith" class="alt">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="label" data-am="እምነታችን">What We Believe</div>
+      <h2 data-am="የኢቫሱ የእምነት መመሪያ">The EvaSUE statement of faith</h2>
+      <p data-am="ኅብረታችን ከተለያዩ ወንጌላውያን አብያተ ክርስቲያናት የመጡ አባላትን ይዟል፤ መሠረታዊ የክርስትና እምነትን በጽኑ እናምናለን።">Our members come from many evangelical churches. Together we hold firmly to the core of the Christian faith.</p>
+    </div>
+    <ul class="ticks reveal">
+      <li data-am="አብ፣ ወልድና መንፈስ ቅዱስ አንድ አምላክ።">One God: Father, Son, and Holy Spirit.</li>
+      <li data-am="መጽሐፍ ቅዱስ በመለኮት የተጻፈና የእምነትና የአኗኗር የመጨረሻ ባለስልጣን ነው።">The Bible is God-inspired and our final authority in faith and life.</li>
+      <li data-am="ደህንነት በኢየሱስ ክርስቶስ መስዋእታዊ ሞትና ትንሣኤ ነው።">Salvation comes through the sacrificial death and resurrection of Jesus Christ.</li>
+      <li data-am="ኃጢአተኛ በጸጋ ብቻ በእምነት ይጸድቃል።">Sinners are justified by grace alone through faith.</li>
+      <li data-am="መንፈስ ቅዱስ በአማኝ ህይወት ይኖራል፤ ይሠራል።">The Holy Spirit lives and works in every believer.</li>
+      <li data-am="አንዲት ቤተክርስቲያንና የክርስቶስ ዳግም መመለስ።">One church, the body of Christ, and his visible return.</li>
+    </ul>
+  </div>
+</section>
 
-    <section id="leaders" class="fade-in">
-        <h2>Meet Our Leaders</h2>
-        <div class="grid-4">
-            <div class="card leader-card">
-                <div class="img-placeholder">[ Portrait ]</div>
-                <h3>Leader Name</h3>
-                <p>Chairperson</p>
-            </div>
-            <div class="card leader-card">
-                <div class="img-placeholder">[ Portrait ]</div>
-                <h3>Leader Name</h3>
-                <p>Vice Chairperson</p>
-            </div>
-            <div class="card leader-card">
-                <div class="img-placeholder">[ Portrait ]</div>
-                <h3>Leader Name</h3>
-                <p>Secretary</p>
-            </div>
-            <div class="card leader-card">
-                <div class="img-placeholder">[ Portrait ]</div>
-                <h3>Leader Name</h3>
-                <p>Finance Head</p>
-            </div>
-        </div>
-    </section>
+<section id="leaders">
+  <div class="wrap">
+    <div class="intro reveal">
+      <div class="label" data-am="አመራር">Leadership</div>
+      <h2 data-am="ዋና መሪዎቻችን">Our main leaders</h2>
+      <p data-am="ሰባት ዋና መሪዎች ለሁለት ዓመት ያገለግላሉ፤ እያንዳንዳቸውም ለአንድ ዘርፍ ተጠሪ ናቸው።">Seven main leaders serve a two-year term, and each is linked to one of the teams.</p>
+    </div>
+    <div class="leaders reveal">
+      <div class="leader"><div class="ph">Portrait</div><h3 data-am="ሰብሳቢ">Chairperson</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph">Portrait</div><h3 data-am="ምክትል ሰብሳቢ">Vice Chairperson</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph">Portrait</div><h3 data-am="ጸሐፊ">Secretary</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph">Portrait</div><h3 data-am="ገንዘብ ያዥ (2)">Treasurers (2)</h3><p>[ Names ]</p></div>
+      <div class="leader"><div class="ph">Portrait</div><h3 data-am="የአጋር አካላት ተጠሪ">Partner Relations</h3><p>[ Name ]</p></div>
+      <div class="leader"><div class="ph">Portrait</div><h3 data-am="የሚሽን ተጠሪ">Mission Lead</h3><p>[ Name ]</p></div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="fade-in">
-        <h2>Contact & Social Media</h2>
-        <div class="grid-2">
-            <div>
-                <h3>Get in Touch</h3>
-                <p>Have questions or want to join us? Send us a message.</p>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-            <div>
-                <h3>Connect With Us</h3>
-                <p>Follow our journey, stay updated on events, and interact with our community online.</p>
-                <div class="social-links">
-                    <a href="#">Telegram</a>
-                    <a href="#">Facebook</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">YouTube</a>
-                </div>
-                <div class="img-placeholder" style="height: 200px; margin-top: 2rem;">[ Social Media Graphic / QR Code Placeholder ]</div>
-            </div>
-        </div>
-    </section>
+<section id="contact" class="alt">
+  <div class="wrap split" style="align-items:start">
+    <div class="reveal">
+      <div class="label" data-am="ያግኙን">Contact</div>
+      <h2 data-am="ይጻፉልን">Get in touch</h2>
+      <p data-am="ጥያቄ አለዎት ወይስ ሊቀላቀሉን ይፈልጋሉ? መልእክት ይላኩልን።">Have questions or want to join us? Send us a message.</p>
+      <form id="form">
+        <div><label for="n" data-am="ስም">Name</label><input id="n" name="name" type="text" required autocomplete="name"></div>
+        <div><label for="e" data-am="ኢሜይል">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
+        <div><label for="m" data-am="መልእክት">Message</label><textarea id="m" name="msg" rows="5" required></textarea></div>
+        <button class="btn solid" type="submit" data-am="መልእክት ላክ">Send Message</button>
+        <p id="note2" role="status"></p>
+      </form>
+    </div>
+    <div class="reveal">
+      <h2 style="font-size:1.5rem" data-am="በማህበራዊ ሚዲያ ይከታተሉን">Follow us online</h2>
+      <p data-am="ምሩቃንም የራሳቸው የቴሌግራም ግሩፕ አላቸው።">Alumni also have their own Telegram group.</p>
+      <ul class="channels">
+        <li>Telegram <a href="#">&rarr;</a></li>
+        <li>Facebook <a href="#">&rarr;</a></li>
+        <li>Instagram <a href="#">&rarr;</a></li>
+        <li>YouTube <a href="#">&rarr;</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Dark Mode Toggle Logic
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const htmlElement = document.documentElement;
+<footer>
+  <div class="wrap">
+    <strong>HU-CMHS-ECSF</strong>
+    <p data-am="የሀዋሳ ዩኒቨርሲቲ ህክምናና ጤና ሳይንስ ኮሌጅ ወንጌላውያን ክርስቲያን ተማሪዎች ኅብረት · ሀዋሳ፣ ኢትዮጵያ">Hawassa University College of Medicine and Health Science Evangelical Christian Students Fellowship · Hawassa, Ethiopia</p>
+    <div class="copy">&copy; <span id="yr"></span> HU-CMHS-ECSF</div>
+  </div>
+</footer>
 
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            htmlElement.setAttribute('data-theme', newTheme);
-        });
+<script>
+const root=document.documentElement;
+let lang='en';
+const T=document.querySelectorAll('[data-am]');
+T.forEach(el=>el.dataset.en=el.innerHTML);
+const ph={en:{n:'Name',e:'Email',m:'Message'},am:{}};
+function setLang(l){
+  lang=l;root.lang=l;
+  T.forEach(el=>el.innerHTML=l==='am'?el.dataset.am:el.dataset.en);
+  document.getElementById('langBtn').textContent=l==='am'?'EN':'አማ';
+  syncTheme();
+  try{localStorage.setItem('hu-lang',l)}catch(e){}
+}
+document.getElementById('langBtn').onclick=()=>setLang(lang==='en'?'am':'en');
 
-        // Scroll Animation Logic (Intersection Observer)
-        const faders = document.querySelectorAll('.fade-in');
-        const appearOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
+const tb=document.getElementById('themeToggle');
+const isDark=()=>root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+function syncTheme(){tb.textContent=isDark()?(lang==='am'?'ብርሃን':'Light'):(lang==='am'?'ጨለማ':'Dark')}
+try{const s=localStorage.getItem('hu-theme');if(s)root.dataset.theme=s}catch(e){}
+tb.onclick=()=>{const n=isDark()?'light':'dark';root.dataset.theme=n;try{localStorage.setItem('hu-theme',n)}catch(e){}syncTheme()};
+syncTheme();
+try{const l=localStorage.getItem('hu-lang');if(l==='am')setLang('am')}catch(e){}
 
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('visible');
-                appearOnScroll.unobserve(entry.target);
-            });
-        }, appearOptions);
+const links=document.getElementById('links'),mb=document.getElementById('menuBtn');
+mb.onclick=()=>{const o=links.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+links.addEventListener('click',e=>{if(e.target.tagName==='A')links.classList.remove('open')});
 
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-    </script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const secs=[...document.querySelectorAll('section[id]')],navA=[...links.querySelectorAll('a')];
+addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))},{passive:true});
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// Put the fellowship's real email here to connect the contact form
+const CONTACT_EMAIL='';
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.target,note=document.getElementById('note2');
+  if(!CONTACT_EMAIL){note.textContent=lang==='am'?'የመልእክት ቅጹ ገና አልተገናኘም።':'The contact form is not connected yet.';return}
+  location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent('Message from '+f.name.value)+'&body='+encodeURIComponent(f.msg.value+'\n\n'+f.name.value+' ('+f.email.value+')');
+});
+</script>
 </body>
 </html>
