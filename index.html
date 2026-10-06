@@ -51,7 +51,7 @@ p { color:var(--muted); }
 nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:var(--nav); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); transition: background-color 0.3s ease; }
 nav .wrap { display:flex; align-items:center; justify-content:space-between; height:76px; padding-top:env(safe-area-inset-top,0px); box-sizing:content-box; }
 .brand { display:flex; align-items:center; gap:.8rem; text-decoration:none; font-family:var(--serif); font-weight:700; font-size:1.1rem; color:var(--primary); line-height:1.2; }
-.brand-logo { width: 45px; height: 45px; object-fit: contain; border-radius: 50%; background-color: white; padding: 2px; box-shadow: var(--shadow-sm); }
+.brand-logo { width: 40px; height: 40px; object-fit: contain; border-radius: 50%; background-color: white; padding: 2px; box-shadow: var(--shadow-sm); }
 .brand small { display:block; font-family:var(--sans); font-weight:500; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top: 2px; }
 .links { display:flex; gap:1.6rem; list-style:none; }
 .links a { text-decoration:none; font-size:.9rem; font-weight:500; color:var(--muted); padding:.4rem 0; border-bottom:2px solid transparent; transition:all .2s; }
@@ -63,19 +63,19 @@ nav .wrap { display:flex; align-items:center; justify-content:space-between; hei
 #menuBtn { display:none; padding:0; font-size: 1.2rem; }
 
 /* Modern Responsive Buttons */
-.btn { 
-  display:inline-flex; align-items: center; justify-content: center; text-decoration:none; 
-  font:600 .95rem var(--sans); padding:.85rem 2rem; border-radius:8px; border:2px solid var(--primary); 
-  transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor:pointer; box-shadow: var(--shadow-sm); 
-}
+.btn { display:inline-flex; align-items: center; justify-content: center; text-decoration:none; font:600 .95rem var(--sans); padding:.85rem 2rem; border-radius:8px; border:2px solid var(--primary); transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor:pointer; box-shadow: var(--shadow-sm); }
 .btn.solid { background:var(--primary); color:var(--on-primary); }
 .btn.solid:hover { background:var(--secondary); border-color:var(--secondary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn:not(.solid):hover { background: rgba(26, 75, 156, 0.05); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
 
 /* hero */
-.hero { text-align:center; color:#fff; background:linear-gradient(135deg, #1a4b9c 0%, #0f2a5c 100%); padding:calc(76px + 7rem + env(safe-area-inset-top,0px)) 0 7rem; position: relative; overflow: hidden; }
+.hero { text-align:center; color:#fff; background:linear-gradient(135deg, #1a4b9c 0%, #0f2a5c 100%); padding:calc(76px + 6rem + env(safe-area-inset-top,0px)) 0 6rem; position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 60%); pointer-events: none; }
+.hero-logo-wrap { display: flex; justify-content: center; margin-bottom: 1.5rem; animation: float 6s ease-in-out infinite; }
+.hero-logo-large { width: 140px; height: 140px; object-fit: contain; background: white; border-radius: 50%; padding: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+
 .hero .k { font-size:.75rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#bcd3f5; margin-bottom:1.5rem; display: inline-block; padding: 0.4rem 1rem; background: rgba(255,255,255,0.1); border-radius: 20px; backdrop-filter: blur(4px); }
 .hero h1 { color:#fff; font-size:clamp(2.2rem, 5vw, 4rem); max-width:18ch; margin:0 auto 1.5rem; letter-spacing:-.01em; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 .hero p { color:#d6e4fa; max-width:60ch; margin:0 auto 2.5rem; font-size:1.1rem; }
@@ -123,6 +123,8 @@ h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
 /* teams specific */
 .team .n { font-family:var(--sans); font-weight:700; color:var(--secondary); font-size: 1.5rem; opacity: 0.3; position: absolute; top: 1.5rem; right: 1.5rem; transition: opacity 0.3s ease; }
 .team:hover .n { opacity: 1; }
+.team-logo-ph { width: 56px; height: 56px; border-radius: 12px; border: 2px dashed var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: var(--secondary); background: var(--bg); margin-bottom: 1.2rem; transition: transform 0.3s ease; text-align: center; line-height: 1.1; padding: 4px;}
+.team:hover .team-logo-ph { transform: scale(1.05); background: var(--alt); }
 .team h3 { font-size:1.2rem; margin-bottom:.8rem; padding-right: 2rem; }
 .team p { font-size:.95rem; margin:0; line-height: 1.6; }
 
@@ -187,10 +189,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
 .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(0.16, 1, 0.3, 1), transform .8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal.in { opacity:1; transform:none; }
 
-@media (max-width:1024px) {
-  .split { gap: 3rem; }
-}
-
+@media (max-width:1024px) { .split { gap: 3rem; } }
 @media (max-width:900px) {
   .links { position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0; background:var(--card); border-bottom:1px solid var(--line); max-height:0; overflow:hidden; transition:max-height .3s ease-in-out; box-shadow: var(--shadow-md); }
   .links.open { max-height:460px; }
@@ -202,14 +201,12 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   section { padding:5rem 0; }
   .hero { padding-top:calc(76px + 5rem + env(safe-area-inset-top,0px)); padding-bottom:5rem; }
 }
-
 @media (max-width:600px) {
   .cards, .teams, .leaders, .pillars { grid-template-columns:1fr; }
   .brand small { display:none; }
   h2 { font-size: 2rem; }
   .hero h1 { font-size: 2.2rem; }
 }
-
 @media (prefers-reduced-motion:reduce) { * { transition:none!important; } .reveal { opacity:1; transform:none; } html { scroll-behavior:auto; } }
 </style>
 </head>
@@ -222,11 +219,11 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
     </a>
     <ul class="links" id="links">
       <li><a href="#about" data-am="ስለ እኛ">About</a></li>
-      <li><a href="#schedule" data-am="መርሃግብር">Schedule</a></li>
       <li><a href="#teams" data-am="ዘርፎች">Teams</a></li>
       <li><a href="#events" data-am="ዝግጅቶች">Events</a></li>
       <li><a href="#mission" data-am="ሚሲዮን">Mission</a></li>
       <li><a href="#leaders" data-am="መሪዎች">Leaders</a></li>
+      <li><a href="#schedule" data-am="መርሃግብር">Schedule</a></li>
       <li><a href="#contact" data-am="ያግኙን">Contact</a></li>
     </ul>
     <div class="tools">
@@ -243,6 +240,9 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
 
 <header class="hero" id="top">
   <div class="wrap">
+    <div class="hero-logo-wrap">
+      <img src="assets/logo.png" alt="HU-CMHS Fellowship Logo" class="hero-logo-large" onerror="this.style.display='none'">
+    </div>
     <div class="k" data-am="ሀዋሳ ዩኒቨርሲቲ · ህክምናና ጤና ሳይንስ ኮሌጅ">Hawassa University · College of Medicine &amp; Health Science</div>
     <h1 data-am="እውነተኛ ፍቅር፣ አንድ ቤተሠብ፣ ጠንካራ ኅብረት">True Love, One Family, Strong Fellowship</h1>
     <p data-am="የሀዋሳ ዩኒቨርሲቲ ህክምናና ጤና ሳይንስ ኮሌጅ ወንጌላውያን ክርስቲያን ተማሪዎች ኅብረት (HU-CMHS-ECSF)">Hawassa University College of Medicine and Health Science Evangelical Christian Students Fellowship (HU-CMHS-ECSF)</p>
@@ -270,28 +270,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   </div>
 </section>
 
-<section id="schedule" class="alt">
-  <div class="wrap">
-    <div class="intro reveal">
-      <div class="label" data-am="ሳምንታዊ መርሃግብር">Weekly Schedule</div>
-      <h2 data-am="ኑ፣ ከእኛ ጋር ይሁኑ">Come and be with us</h2>
-      <p data-am="በየሳምንቱ አምልኮ፣ የመጽሐፍ ቅዱስ ጥናትና ጸሎት አለን። ሁሉም ተማሪ እንኳን ደህና መጣችሁ።">Every week we gather for worship, Bible study, and prayer. All students are welcome.</p>
-    </div>
-    <div class="cards reveal">
-      <div><span data-am="ሰኞ">Monday</span><h3 data-am="የአዲስ ገቢ ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, Fresh Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሪፈራል መካነ ኢየሱስ ቤ/ክ">Referral Mekane Yesus Church</p></div>
-      <div><span data-am="ማክሰኞ">Tuesday</span><h3 data-am="የቀሪዎቹ 5 ዘርፎች የኅብረት ጊዜ">Fellowship of the Rest of the Teams</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="መካነ ኢየሱስ፣ ሆጎዋ እና ህይወት ብርሃን ጽ/ቤት">Mekane Yesus, Hogwa, and Hiwot Berhan Office</p></div>
-      <div><span data-am="ረቡዕ">Wednesday</span><h3 data-am="ሌቫይትስና ቤርያ ዘርፎች የኅብረት ጊዜ">Levites &amp; Berea Teams Fellowship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ህይወት ብርሃን ጽ/ቤት">Hiwot Berhan Office</p></div>
-      <div><span data-am="ሐሙስ">Thursday</span><h3 data-am="የነባር ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, Senior Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
-      <div><span data-am="ዐርብ">Friday</span><h3 data-am="የኅብረቱ አምልኮ">Fellowship Worship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
-      <div><span data-am="ሰኞ እስከ ቅዳሜ">Monday to Saturday</span><h3 data-am="የማለዳና የምሳ ሰዓት ጸሎት">Morning Devotion &amp; Lunch Prayer</h3><b data-am="ማለዳ 12:00-1:00 · ምሳ 6:00-7:00">Morning 12:00-1:00 · Lunch 6:00-7:00</b><p data-am="ሁሉም አባል ይሳተፋል">Open to every member</p></div>
-    </div>
-    <div class="center">
-      <p class="note reveal" data-am="ሰዓቶች በኢትዮጵያ አቆጣጠር ናቸው።">All times follow the Ethiopian clock.</p>
-    </div>
-  </div>
-</section>
-
-<section id="teams">
+<section id="teams" class="alt">
   <div class="wrap">
     <div class="intro reveal">
       <div class="label" data-am="ዘርፎቻችን">Our Teams</div>
@@ -299,20 +278,61 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <p data-am="አዲስ አባላት ኅብረቱን ከተቀላቀሉ ከሦስት ወር በኋላ አንድ ዘርፍ ይመርጣሉ።">New members choose a team after their first three months in the fellowship.</p>
     </div>
     <div class="teams reveal">
-      <div class="team"><span class="n">01</span><h3 data-am="አክሽን ዘርፍ">Action Team</h3><p data-am="ፍቅርን በተግባር ይገልጣል፤ ህሙማንን መጠየቅ፣ የጎዳና ልጆች፣ የቤተሰብና የእስረኞች አገልግሎት።">Shows love in practice through hospital ward visits, street children, needy families, and prison visits.</p></div>
-      <div class="team"><span class="n">02</span><h3 data-am="ቤርያ ዘርፍ">Berea Team</h3><p data-am="መጽሐፍ ቅዱስ ተኮር፤ አዳዲስ አማኞችን መከታተልና ማስተማር፣ የጥናት ማስተባበርና የዕለት እንጀራ።">Bible-centered ministry: follow-up and basic teaching for new believers, Bible study coordination, and Daily Bread.</p></div>
-      <div class="team"><span class="n">03</span><h3 data-am="የወንጌል ማስተማበር ዘርፍ (EMT)">Evangelism Mobilizing Team</h3><p data-am="በግቢና ከግቢ ውጭ ወንጌልን ማድረስ ይመራል፤ ያስተባብራል።">Leads and mobilizes evangelism on and off campus through personal sharing, Prayer-Care-Share, and outreach.</p></div>
-      <div class="team"><span class="n">04</span><h3 data-am="ኬብሮን ኳየር ዘርፍ">Kebron Choir Team</h3><p data-am="ኅብረቱን በዝማሬ አምልኮ ይመራል፤ ግጥምና ዜማ መድረስንና የሙዚቃ መሳሪያዎችን ያሰለጥናል።">Leads worship through song and develops members in music, songwriting, and instruments.</p></div>
-      <div class="team"><span class="n">05</span><h3 data-am="ሌቫይትስ የስነጽሑፍና የድራማ ዘርፍ">Levites Literature &amp; Drama</h3><p data-am="በጽሑፍ፣ በስነጽሑፍ ምሽቶችና በድራማ ኅብረቱን ያንጻል።">Builds up the fellowship through written pieces, literature nights, and drama.</p></div>
-      <div class="team"><span class="n">06</span><h3 data-am="የጸሎት ማስተማበር ዘርፍ (PMT)">Prayer Mobilizing Team</h3><p data-am="ኅብረቱን ለጸሎት ያስተባብራል፤ የማለዳና የምሳ ጸሎት፣ የጸሎት ሳምንትና የጾም ቀናትን ያዘጋጃል።">Mobilizes the whole fellowship to pray: daily devotion, lunch prayer, a prayer week, and fasting days.</p></div>
-      <div class="team"><span class="n">07</span><h3 data-am="ዌልፌር ዘርፍ">Welfare Team</h3><p data-am="የማማከር አገልግሎት፤ የጠፉ አባላትን መከታተል፣ በቴሌግራም ቦት ምክር፣ መጽሐፍ ማዋስ።">Counseling and care: follows up on members who drift away, offers counseling (including via a Telegram bot), and lends spiritual books.</p></div>
-      <div class="team" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;"><div style="grid-column: 1 / -1;"><span class="n" data-am="ቋሚ ኮሚቴዎች" style="position: relative; top: 0; right: 0; display: block; margin-bottom: 0.5rem; opacity: 1; font-size: 1rem;">Standing Committees</span><h3 data-am="ዲጂታልስ · ፈንድ · ሚሽን">Digitals &middot; Fundraising &middot; Mission</h3><p data-am="ዲጂታልስ ግራፊክስ፣ ቪዲዮ፣ ፎቶና ሳውንድ ይሠራል፤ ፈንድ ኮሚቴ ገንዘብ ያሰባስባል፤ ሚሽን ኮሚቴ ዓመታዊውን ሚሲዮናዊ ጉዞ ያዘጋጃል።">Digitals handles graphics, video, photo, and sound. The Fund committee raises resources, and the Mission committee organizes the annual mission trip.</p></div></div>
+      <div class="team">
+        <span class="n">01</span>
+        <div class="team-logo-ph">[ Logo ]</div>
+        <h3 data-am="አክሽን ዘርፍ">Action Team</h3>
+        <p data-am="ፍቅርን በተግባር ይገልጣል፤ ህሙማንን መጠየቅ፣ የጎዳና ልጆች፣ የቤተሰብና የእስረኞች አገልግሎት።">Shows love in practice through hospital ward visits, street children, needy families, and prison visits.</p>
+      </div>
+      <div class="team">
+        <span class="n">02</span>
+        <div class="team-logo-ph">[ Logo ]</div>
+        <h3 data-am="ቤርያ ዘርፍ">Berea Team</h3>
+        <p data-am="መጽሐፍ ቅዱስ ተኮር፤ አዳዲስ አማኞችን መከታተልና ማስተማር፣ የጥናት ማስተባበርና የዕለት እንጀራ።">Bible-centered ministry: follow-up and basic teaching for new believers, Bible study coordination, and Daily Bread.</p>
+      </div>
+      <div class="team">
+        <span class="n">03</span>
+        <div class="team-logo-ph">[ Logo ]</div>
+        <h3 data-am="የወንጌል ማስተማበር ዘርፍ (EMT)">Evangelism Mobilizing Team</h3>
+        <p data-am="በግቢና ከግቢ ውጭ ወንጌልን ማድረስ ይመራል፤ ያስተባብራል።">Leads and mobilizes evangelism on and off campus through personal sharing, Prayer-Care-Share, and outreach.</p>
+      </div>
+      <div class="team">
+        <span class="n">04</span>
+        <div class="team-logo-ph">[ Logo ]</div>
+        <h3 data-am="ኬብሮን ኳየር ዘርፍ">Kebron Choir Team</h3>
+        <p data-am="ኅብረቱን በዝማሬ አምልኮ ይመራል፤ ግጥምና ዜማ መድረስንና የሙዚቃ መሳሪያዎችን ያሰለጥናል።">Leads worship through song and develops members in music, songwriting, and instruments.</p>
+      </div>
+      <div class="team">
+        <span class="n">05</span>
+        <div class="team-logo-ph">[ Logo ]</div>
+        <h3 data-am="ሌቫይትስ የስነጽሑፍና የድራማ ዘርፍ">Levites Literature &amp; Drama</h3>
+        <p data-am="በጽሑፍ፣ በስነጽሑፍ ምሽቶችና በድራማ ኅብረቱን ያንጻል።">Builds up the fellowship through written pieces, literature nights, and drama.</p>
+      </div>
+      <div class="team">
+        <span class="n">06</span>
+        <div class="team-logo-ph">[ Logo ]</div>
+        <h3 data-am="የጸሎት ማስተማበር ዘርፍ (PMT)">Prayer Mobilizing Team</h3>
+        <p data-am="ኅብረቱን ለጸሎት ያስተባብራል፤ የማለዳና የምሳ ጸሎት፣ የጸሎት ሳምንትና የጾም ቀናትን ያዘጋጃል።">Mobilizes the whole fellowship to pray: daily devotion, lunch prayer, a prayer week, and fasting days.</p>
+      </div>
+      <div class="team">
+        <span class="n">07</span>
+        <div class="team-logo-ph">[ Logo ]</div>
+        <h3 data-am="ዌልፌር ዘርፍ">Welfare Team</h3>
+        <p data-am="የማማከር አገልግሎት፤ የጠፉ አባላትን መከታተል፣ በቴሌግራም ቦት ምክር፣ መጽሐፍ ማዋስ።">Counseling and care: follows up on members who drift away, offers counseling (including via a Telegram bot), and lends spiritual books.</p>
+      </div>
+      <div class="team" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div style="grid-column: 1 / -1;">
+          <span class="n" data-am="ቋሚ ኮሚቴዎች" style="position: relative; top: 0; right: 0; display: block; margin-bottom: 0.5rem; opacity: 1; font-size: 1rem;">Standing Committees</span>
+          <div class="team-logo-ph">[ Logo ]</div>
+          <h3 data-am="ዲጂታልስ · ፈንድ · ሚሽን">Digitals &middot; Fundraising &middot; Mission</h3>
+          <p data-am="ዲጂታልስ ግራፊክስ፣ ቪዲዮ፣ ፎቶና ሳውንድ ይሠራል፤ ፈንድ ኮሚቴ ገንዘብ ያሰባስባል፤ ሚሽን ኮሚቴ ዓመታዊውን ሚሲዮናዊ ጉዞ ያዘጋጃል።">Digitals handles graphics, video, photo, and sound. The Fund committee raises resources, and the Mission committee organizes the annual mission trip.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- UPDATED EVENTS SECTION (Stacked layout to prevent overlap) -->
-<section id="events" class="alt">
+<section id="events">
   <div class="wrap">
     <div class="intro reveal center" style="margin-left: auto; margin-right: auto;">
       <div class="label" data-am="ዓመታዊ ዝግጅቶች" style="justify-content: center;">Yearly Events</div>
@@ -331,7 +351,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   </div>
 </section>
 
-<section id="mission">
+<section id="mission" class="alt">
   <div class="wrap split">
     <div class="ph reveal" style="aspect-ratio:4/3; height: 100%;">
       [ Add Outreach / Mission Trip Photo Here ]
@@ -349,7 +369,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   </div>
 </section>
 
-<section id="faith" class="alt">
+<section id="faith">
   <div class="wrap split">
     <div class="reveal">
       <div class="label" data-am="እምነታችን">What We Believe</div>
@@ -367,7 +387,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   </div>
 </section>
 
-<section id="leaders">
+<section id="leaders" class="alt">
   <div class="wrap">
     <div class="intro reveal">
       <div class="label" data-am="አመራር">Leadership</div>
@@ -381,6 +401,27 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ገንዘብ ያዥ (2)">Treasurers (2)</h3><p>[ Names ]</p></div>
       <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="የአጋር አካላት ተጠሪ">Partner Relations</h3><p>[ Name ]</p></div>
       <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="የሚሽን ተጠሪ">Mission Lead</h3><p>[ Name ]</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="intro reveal">
+      <div class="label" data-am="ሳምንታዊ መርሃግብር">Weekly Schedule</div>
+      <h2 data-am="ኑ፣ ከእኛ ጋር ይሁኑ">Come and be with us</h2>
+      <p data-am="በየሳምንቱ አምልኮ፣ የመጽሐፍ ቅዱስ ጥናትና ጸሎት አለን። ሁሉም ተማሪ እንኳን ደህና መጣችሁ።">Every week we gather for worship, Bible study, and prayer. All students are welcome.</p>
+    </div>
+    <div class="cards reveal">
+      <div><span data-am="ሰኞ">Monday</span><h3 data-am="የአዲስ ገቢ ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, Fresh Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሪፈራል መካነ ኢየሱስ ቤ/ክ">Referral Mekane Yesus Church</p></div>
+      <div><span data-am="ማክሰኞ">Tuesday</span><h3 data-am="የቀሪዎቹ 5 ዘርፎች የኅብረት ጊዜ">Fellowship of the Rest of the Teams</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="መካነ ኢየሱስ፣ ሆጎዋ እና ህይወት ብርሃን ጽ/ቤት">Mekane Yesus, Hogwa, and Hiwot Berhan Office</p></div>
+      <div><span data-am="ረቡዕ">Wednesday</span><h3 data-am="ሌቫይትስና ቤርያ ዘርፎች የኅብረት ጊዜ">Levites &amp; Berea Teams Fellowship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ህይወት ብርሃን ጽ/ቤት">Hiwot Berhan Office</p></div>
+      <div><span data-am="ሐሙስ">Thursday</span><h3 data-am="የነባር ተማሪዎች መጽሐፍ ቅዱስ ጥናት">Bible Study, Senior Students</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
+      <div><span data-am="ዐርብ">Friday</span><h3 data-am="የኅብረቱ አምልኮ">Fellowship Worship</h3><b data-am="12:00 (ከቀኑ 6:00 ሰዓት ምሽት)">12:00 Ethiopian time (6:00 PM)</b><p data-am="ሆጎዋ ህይወት ብርሃን ቤ/ክ">Hogwa Hiwot Berhan Church</p></div>
+      <div><span data-am="ሰኞ እስከ ቅዳሜ">Monday to Saturday</span><h3 data-am="የማለዳና የምሳ ሰዓት ጸሎት">Morning Devotion &amp; Lunch Prayer</h3><b data-am="ማለዳ 12:00-1:00 · ምሳ 6:00-7:00">Morning 12:00-1:00 · Lunch 6:00-7:00</b><p data-am="ሁሉም አባል ይሳተፋል">Open to every member</p></div>
+    </div>
+    <div class="center">
+      <p class="note reveal" data-am="ሰዓቶች በኢትዮጵያ አቆጣጠር ናቸው።">All times follow the Ethiopian clock.</p>
     </div>
   </div>
 </section>
