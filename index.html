@@ -109,9 +109,11 @@ h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
 .intro { max-width:660px; margin-bottom:3.5rem; }
 .center { text-align:center; margin-left:auto; margin-right:auto; }
 
-/* Image Placeholders */
-.ph { background:var(--card); color:var(--ph-text); display:grid; place-items:center; text-align:center; padding:1rem; border:2px dashed var(--line); border-radius:16px; width:100%; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); transition: all 0.3s ease; }
-.ph:hover { border-color: var(--secondary); background: var(--alt); color: var(--secondary); }
+/* Image Setup */
+.section-img-wrap { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); position: relative; background: var(--ph); }
+.section-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.section-img-wrap:hover img { transform: scale(1.03); }
+.leader-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.2rem; display: block; box-shadow: var(--shadow-sm); border: 2px solid var(--card); background: var(--ph); }
 
 .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap: 1rem; border-top:1px solid var(--line); margin-top:2rem; padding-top: 2rem; }
 .pillars div { padding:1.5rem; background: var(--card); border-radius: 8px; border: 1px solid var(--line); font-family:var(--serif); font-weight:700; color:var(--primary); text-align: center; font-size: 1.1rem; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
@@ -158,7 +160,6 @@ h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
 .leaders { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
 .leader { background: var(--card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--line); text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
 .leader:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.leader .ph { aspect-ratio:1; border-radius: 50%; width: 120px; height: 120px; margin: 0 auto 1.2rem; }
 .leader h3 { font-size:1.1rem; margin-bottom: 0.2rem; }
 .leader p { font-size:.85rem; margin:0; color: var(--secondary); font-weight: 500; }
 
@@ -275,9 +276,12 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         <div data-am="ወንጌልና ሚሲዮን">Gospel &amp; Mission</div>
       </div>
     </div>
-    <div class="ph reveal" style="aspect-ratio:4/3;">
-      [ Add Fellowship Gathering Photo Here ]
+    
+    <!-- Image Placeholder 1: About Us -->
+    <div class="section-img-wrap reveal" style="aspect-ratio:4/3;">
+      <img src="https://placehold.co/800x600/e2e8f0/475569?text=Insert+Gathering+Photo+Here" alt="Fellowship Gathering">
     </div>
+    
   </div>
 </section>
 
@@ -334,11 +338,17 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         <h3 data-am="ሌቫይትስ የስነጽሑፍና የድራማ ዘርፍ">Levites Literature &amp; Drama</h3>
         <p data-am="በጽሑፍ፣ በስነጽሑፍ ምሽቶችና በድራማ ኅብረቱን ያንጻል።">Builds up the fellowship through written pieces, literature nights, and drama.</p>
       </div>
-      <!-- 06 Prayer -->
+      <!-- 06 Prayer (PRAYING HANDS ICON) -->
       <div class="team">
         <span class="n">06</span>
         <div class="team-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21V9.5"/>
+            <path d="M12 9.5a2.5 2.5 0 0 1-5 0v-4a2.5 2.5 0 0 1 5 0"/>
+            <path d="M12 9.5a2.5 2.5 0 0 0 5 0v-4a2.5 2.5 0 0 0-5 0"/>
+            <path d="M7 9.5a2.5 2.5 0 0 1-5 0V7"/>
+            <path d="M17 9.5a2.5 2.5 0 0 0 5 0V7"/>
+          </svg>
         </div>
         <h3 data-am="የጸሎት ማስተማበር ዘርፍ (PMT)">Prayer Mobilizing Team</h3>
         <p data-am="ኅብረቱን ለጸሎት ያስተባብራል፤ የማለዳና የምሳ ጸሎት፣ የጸሎት ሳምንትና የጾም ቀናትን ያዘጋጃል።">Mobilizes the whole fellowship to pray: daily devotion, lunch prayer, a prayer week, and fasting days.</p>
@@ -373,9 +383,12 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <div class="label" data-am="ዓመታዊ ዝግጅቶች" style="justify-content: center;">Yearly Events</div>
       <h2 data-am="ዓመታችንን የሚቀርጹ ጊዜያት">Moments that shape our year</h2>
     </div>
-    <div class="ph reveal" style="aspect-ratio: 21/9; margin-bottom: 3.5rem; width: 100%; max-height: 450px;">
-      [ Add Wide Conference / Event Photo Here ]
+
+    <!-- Image Placeholder 2: Events Wide -->
+    <div class="section-img-wrap reveal" style="aspect-ratio: 21/9; margin-bottom: 3.5rem; width: 100%; max-height: 450px;">
+      <img src="https://placehold.co/1200x500/e2e8f0/475569?text=Insert+Wide+Event+Photo+Here" alt="Annual Conference">
     </div>
+
     <div class="events reveal" style="max-width: 900px; margin: 0 auto;">
       <div class="event"><span class="n">I</span><div><h3 data-am="የዘርፎች ሳምንት (Teams Week)">Teams Week</h3><p data-am="ሁለት ቀናት የጨዋታ፣ የአምልኮና የአንድነት ጊዜ፤ ምሩቃንም ይጋበዛሉ።">Two days of games, worship, and fellowship for members and invited alumni.</p></div></div>
       <div class="event"><span class="n">II</span><div><h3 data-am="የአዲስ ተማሪዎች አቀባበል">Fresh Welcome</h3><p data-am="አዲስ ክርስቲያን ተማሪዎችን የምንቀበልበትና ወደ ኅብረቱ የምንቀላቅልበት ቀን።">The day we welcome new Christian students and bring them into the fellowship family.</p></div></div>
@@ -388,9 +401,12 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
 
 <section id="mission" class="alt">
   <div class="wrap split">
-    <div class="ph reveal" style="aspect-ratio:4/3; height: 100%;">
-      [ Add Outreach / Mission Trip Photo Here ]
+    
+    <!-- Image Placeholder 3: Mission -->
+    <div class="section-img-wrap reveal" style="aspect-ratio:4/3; height: 100%;">
+      <img src="https://placehold.co/800x600/e2e8f0/475569?text=Insert+Mission+Photo+Here" alt="Outreach Photo">
     </div>
+
     <div class="reveal">
       <div class="label" data-am="ሚሲዮናዊ አገልግሎት">Mission Service</div>
       <h2 data-am="ወንጌልን ወዳልሰሙ">Taking the gospel to the unreached</h2>
@@ -430,12 +446,37 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <p data-am="ሰባት ዋና መሪዎች ለሁለት ዓመት ያገለግላሉ፤ እያንዳንዳቸውም ለአንድ ዘርፍ ተጠሪ ናቸው።">Seven main leaders serve a two-year term, and each is linked to one of the teams.</p>
     </div>
     <div class="leaders reveal">
-      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ሰብሳቢ">Chairperson</h3><p>[ Name ]</p></div>
-      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ምክትል ሰብሳቢ">Vice Chairperson</h3><p>[ Name ]</p></div>
-      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ጸሐፊ">Secretary</h3><p>[ Name ]</p></div>
-      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="ገንዘብ ያዥ (2)">Treasurers (2)</h3><p>[ Names ]</p></div>
-      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="የአጋር አካላት ተጠሪ">Partner Relations</h3><p>[ Name ]</p></div>
-      <div class="leader"><div class="ph" style="border-radius: 50%;">[ Photo ]</div><h3 data-am="የሚሽን ተጠሪ">Mission Lead</h3><p>[ Name ]</p></div>
+      <!-- Image Placeholders 4-9: Leaders -->
+      <div class="leader">
+        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Portrait" alt="Chairperson" class="leader-img">
+        <h3 data-am="ሰብሳቢ">Chairperson</h3>
+        <p>[ Name ]</p>
+      </div>
+      <div class="leader">
+        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Portrait" alt="Vice Chairperson" class="leader-img">
+        <h3 data-am="ምክትል ሰብሳቢ">Vice Chairperson</h3>
+        <p>[ Name ]</p>
+      </div>
+      <div class="leader">
+        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Portrait" alt="Secretary" class="leader-img">
+        <h3 data-am="ጸሐፊ">Secretary</h3>
+        <p>[ Name ]</p>
+      </div>
+      <div class="leader">
+        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Portrait" alt="Treasurers" class="leader-img">
+        <h3 data-am="ገንዘብ ያዥ (2)">Treasurers (2)</h3>
+        <p>[ Names ]</p>
+      </div>
+      <div class="leader">
+        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Portrait" alt="Partner Relations" class="leader-img">
+        <h3 data-am="የአጋር አካላት ተጠሪ">Partner Relations</h3>
+        <p>[ Name ]</p>
+      </div>
+      <div class="leader">
+        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Portrait" alt="Mission Lead" class="leader-img">
+        <h3 data-am="የሚሽን ተጠሪ">Mission Lead</h3>
+        <p>[ Name ]</p>
+      </div>
     </div>
   </div>
 </section>
