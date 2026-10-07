@@ -551,16 +551,10 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         </h3>
         <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text);" data-am="HU CMHS-ECSF<br>የባንክ አካውንት፦">HU CMHS-ECSF<br>Fellowship Bank Account:</p>
         
-        <div style="background: var(--bg); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s;" onclick="navigator.clipboard.writeText('1000592971775'); const t = this.querySelector('.copy-txt'); const orig = t.getAttribute('data-orig') || t.innerText; t.setAttribute('data-orig', orig); t.innerText = 'Copied!'; setTimeout(() => t.innerText = orig, 2000);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-sm)';" onmouseout="this.style.borderColor='var(--line)'; this.style.transform='none'; this.style.boxShadow='none';">
-          <div>
-            <span style="display: block; font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem;">CBE</span>
-            <strong style="font-size: 1.4rem; color: var(--primary); font-family: monospace; letter-spacing: 2px;">1000592971775</strong>
-            <span style="display: block; font-size: 0.85rem; margin-top: 0.4rem; color: var(--muted);">(Natan Tegene &amp; Hasset Getachew)</span>
-          </div>
-          <div style="background: var(--alt); padding: 0.6rem 0.8rem; border-radius: 8px; color: var(--secondary); display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span class="copy-txt" style="font-size: 0.75rem; font-weight: 600;">Copy</span>
-          </div>
+        <div style="background: var(--bg); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--line); text-align: center; cursor: pointer; transition: all 0.2s;" title="Tap to copy" onclick="navigator.clipboard.writeText('1000592971775'); const num = this.querySelector('strong'); num.innerText = 'Copied!'; setTimeout(() => num.innerText = '1000592971775', 2000);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-sm)';" onmouseout="this.style.borderColor='var(--line)'; this.style.transform='none'; this.style.boxShadow='none';">
+          <span style="display: block; font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem;">CBE</span>
+          <strong style="font-size: 1.5rem; color: var(--primary); font-family: monospace; letter-spacing: 2px;">1000592971775</strong>
+          <span style="display: block; font-size: 0.85rem; margin-top: 0.4rem; color: var(--muted);">(Natan Tegene &amp; Hasset Getachew)</span>
         </div>
       </div>
 
