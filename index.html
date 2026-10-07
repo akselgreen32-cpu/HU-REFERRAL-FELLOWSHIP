@@ -543,16 +543,24 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         </li>
       </ul>
 
-      <!-- Donation Card -->
-      <div style="background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 1.5rem; margin-top: 2.5rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
-        <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 8px; color: var(--text);">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--secondary);"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      <!-- Support/Donation Card -->
+      <div style="background: linear-gradient(145deg, var(--card) 0%, var(--alt) 100%); border: 2px solid var(--secondary); border-radius: 16px; padding: 2rem; margin-top: 2.5rem; position: relative; overflow: hidden; box-shadow: var(--shadow-md);">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px; color: var(--primary);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
           <span data-am="የኅብረቱ የባንክ አካውንት">Support the Fellowship</span>
         </h3>
-        <p style="font-size: 0.95rem; margin-bottom: 0.8rem; color: var(--muted);" data-am="HU CMHS-ECSF <br>📌 የባንክ አካውንት፦">HU CMHS-ECSF <br>📌 Fellowship Bank Account:</p>
-        <div style="background: var(--alt); padding: 1rem; border-radius: 8px; border: 1px dashed var(--secondary);">
-          <strong style="font-size: 1.2rem; color: var(--primary); font-family: monospace; letter-spacing: 1px;">CBE 1000592971775</strong>
-          <p style="font-size: 0.85rem; margin-top: 0.4rem; color: var(--text);">(Natan Tegene &amp; Hasset Getachew)</p>
+        <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text);" data-am="HU CMHS-ECSF<br>የባንክ አካውንት፦">HU CMHS-ECSF<br>Fellowship Bank Account:</p>
+        
+        <div style="background: var(--bg); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s;" onclick="navigator.clipboard.writeText('1000592971775'); const t = this.querySelector('.copy-txt'); const orig = t.getAttribute('data-orig') || t.innerText; t.setAttribute('data-orig', orig); t.innerText = 'Copied!'; setTimeout(() => t.innerText = orig, 2000);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-sm)';" onmouseout="this.style.borderColor='var(--line)'; this.style.transform='none'; this.style.boxShadow='none';">
+          <div>
+            <span style="display: block; font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem;">CBE</span>
+            <strong style="font-size: 1.4rem; color: var(--primary); font-family: monospace; letter-spacing: 2px;">1000592971775</strong>
+            <span style="display: block; font-size: 0.85rem; margin-top: 0.4rem; color: var(--muted);">(Natan Tegene &amp; Hasset Getachew)</span>
+          </div>
+          <div style="background: var(--alt); padding: 0.6rem 0.8rem; border-radius: 8px; color: var(--secondary); display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span class="copy-txt" style="font-size: 0.75rem; font-weight: 600;">Copy</span>
+          </div>
         </div>
       </div>
 
