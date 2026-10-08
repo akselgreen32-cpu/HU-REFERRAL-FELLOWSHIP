@@ -479,11 +479,19 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <p data-am="ጥያቄ አለዎት ወይስ ሊቀላቀሉን ይፈልጋሉ? ኢሜይል ይላኩልን።">Have questions or want to join us? Send us an email.</p>
       
       <form id="form" onsubmit="sendEmail(event)">
-        <div><label for="n" data-am="ስም">Name</label><input id="n" type="text" required autocomplete="name"></div>
-        <div><label for="p" data-am="ስልክ ቁጥር">Phone Number</label><input id="p" type="tel" required autocomplete="tel"></div>
-        <div><label for="m" data-am="መልእክት">Message</label><textarea id="m" rows="5" required></textarea></div>
-        <button class="btn solid" type="submit" data-am="ኢሜይል ላክ">Send Email</button>
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+        <input type="hidden" name="subject" value="New Message from Website">
+        <input type="hidden" name="from_name" value="HU-CMHS Fellowship Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div><label for="n" data-am="ስም">Name</label><input id="n" name="name" type="text" required autocomplete="name"></div>
+        <div><label for="m" data-am="መልእክት">Message</label><textarea id="m" name="message" rows="5" required></textarea></div>
+        <button class="btn solid" id="sendBtn" type="submit" data-am="መልእክት ላክ">Send Message</button>
+        <p id="formStatus" role="status" style="margin:0;font-size:.9rem"></p>
       </form>
+
+      <div style="margin-top:1.5rem">
+        <a class="btn" id="gformBtn" href="GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener noreferrer" data-am="የአባላትና የተመራቂዎች ቅጽ ይሙሉ">Members &amp; Graduates Form</a>
+      </div>
 
     </div>
     <div class="reveal">
@@ -581,14 +589,25 @@ const secs=[...document.querySelectorAll('section[id]')],navA=[...links.querySel
 addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))},{passive:true});
 document.getElementById('yr').textContent=new Date().getFullYear();
 
-function sendEmail(e) {
+async function sendEmail(e) {
   e.preventDefault();
-  const n = document.getElementById('n').value;
-  const p = document.getElementById('p').value;
-  const m = document.getElementById('m').value;
-  const subject = encodeURIComponent("New Message from Website");
-  const body = encodeURIComponent(`Name: ${n}\nPhone: ${p}\n\nMessage:\n${m}`);
-  window.location.href = `mailto:Referralfellowship@gmail.com?subject=${subject}&body=${body}`;
+  const f = e.target, s = document.getElementById('formStatus'), b = document.getElementById('sendBtn');
+  const am = lang === 'am';
+  s.textContent = am ? 'በመላክ ላይ...' : 'Sending...';
+  b.disabled = true;
+  try {
+    const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(f) });
+    const d = await r.json();
+    if (d.success) {
+      s.textContent = am ? 'መልእክትዎ ተልኳል። እናመሰግናለን!' : 'Message sent. Thank you!';
+      f.reset();
+    } else {
+      s.textContent = am ? 'አልተላከም። እባክዎ እንደገና ይሞክሩ።' : 'Something went wrong. Please try again.';
+    }
+  } catch (err) {
+    s.textContent = am ? 'የኔትወርክ ችግር። እንደገና ይሞክሩ።' : 'Network error. Please try again.';
+  }
+  b.disabled = false;
 }
 </script>
 </body>
