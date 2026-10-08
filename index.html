@@ -476,13 +476,13 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
     <div class="reveal">
       <div class="label" data-am="ያግኙን">Contact</div>
       <h2 data-am="ይጻፉልን">Get in touch</h2>
-      <p data-am="ጥያቄ አለዎት ወይስ ሊቀላቀሉን ይፈልጋሉ? በአጭር የጽሁፍ መልእክት ያግኙን።">Have questions or want to join us? Send us a text message.</p>
+      <p data-am="ጥያቄ አለዎት ወይስ ሊቀላቀሉን ይፈልጋሉ? ኢሜይል ይላኩልን።">Have questions or want to join us? Send us an email.</p>
       
-      <form id="form" onsubmit="sendSMS(event)">
+      <form id="form" onsubmit="sendEmail(event)">
         <div><label for="n" data-am="ስም">Name</label><input id="n" type="text" required autocomplete="name"></div>
         <div><label for="p" data-am="ስልክ ቁጥር">Phone Number</label><input id="p" type="tel" required autocomplete="tel"></div>
         <div><label for="m" data-am="መልእክት">Message</label><textarea id="m" rows="5" required></textarea></div>
-        <button class="btn solid" type="submit" data-am="በአጭር የጽሁፍ መልእክት ላክ">Send via SMS</button>
+        <button class="btn solid" type="submit" data-am="ኢሜይል ላክ">Send Email</button>
       </form>
 
     </div>
@@ -581,13 +581,14 @@ const secs=[...document.querySelectorAll('section[id]')],navA=[...links.querySel
 addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))},{passive:true});
 document.getElementById('yr').textContent=new Date().getFullYear();
 
-function sendSMS(e) {
+function sendEmail(e) {
   e.preventDefault();
   const n = document.getElementById('n').value;
   const p = document.getElementById('p').value;
   const m = document.getElementById('m').value;
-  const body = encodeURIComponent(`Name: ${n}\nPhone: ${p}\nMessage: ${m}`);
-  window.location.href = `sms:+251939868655?body=${body}`;
+  const subject = encodeURIComponent("New Message from Website");
+  const body = encodeURIComponent(`Name: ${n}\nPhone: ${p}\n\nMessage:\n${m}`);
+  window.location.href = `mailto:Referralfellowship@gmail.com?subject=${subject}&body=${body}`;
 }
 </script>
 </body>
