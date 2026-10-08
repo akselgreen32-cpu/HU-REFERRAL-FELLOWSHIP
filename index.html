@@ -476,22 +476,24 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
     <div class="reveal">
       <div class="label" data-am="ያግኙን">Contact</div>
       <h2 data-am="ይጻፉልን">Get in touch</h2>
-      <p data-am="ጥያቄ አለዎት ወይስ ሊቀላቀሉን ይፈልጋሉ? ኢሜይል ይላኩልን።">Have questions or want to join us? Send us an email.</p>
+      <p data-am="ጥያቄ አለዎት ወይስ ሊቀላቀሉን ይፈልጋሉ? መልእክት ይላኩልን።">Have questions or want to join us? Send us a message.</p>
       
       <form id="form" onsubmit="sendEmail(event)">
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
         <input type="hidden" name="subject" value="New Message from Website">
         <input type="hidden" name="from_name" value="HU-CMHS Fellowship Website">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div><label for="n" data-am="ስም">Name</label><input id="n" name="name" type="text" required autocomplete="name"></div>
-        <div><label for="e" data-am="ኢሜይል">Email</label><input id="e" name="email" type="email" required autocomplete="email" inputmode="email" maxlength="80" placeholder="name@gmail.com"></div>
+        <div><label for="e" data-am="ኢሜይል">Email</label><input id="e" name="email" type="email" required autocomplete="email" inputmode="email" maxlength="80" placeholder="name@email.com"></div>
         <div><label for="m" data-am="መልእክት">Message</label><textarea id="m" name="message" rows="5" required></textarea></div>
         <button class="btn solid" id="sendBtn" type="submit" data-am="መልእክት ላክ">Send Message</button>
-        <p id="formStatus" role="status" style="margin:0;font-size:.9rem"></p>
+        <p id="formStatus" role="status" style="margin:0;font-size:.9rem; color:var(--primary);"></p>
       </form>
 
-      <div style="margin-top:1.5rem">
-        <a class="btn" id="gformBtn" href="GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener noreferrer" data-am="የአባላትና የተመራቂዎች ቅጽ ይሙሉ">Members &amp; Graduates Form</a>
+      <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--line);">
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem;" data-am="ለአባላት እና ምሩቃን">For Members &amp; Graduates</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 1.2rem; color: var(--muted);" data-am="እባክዎትን ይህንን ቅጽ በመሙላት ይመዝገቡ።">Please register by filling out this form.</p>
+        <a class="btn" id="gformBtn" href="GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener noreferrer" data-am="ቅጹን ይሙሉ">Fill the Form</a>
       </div>
 
     </div>
@@ -590,38 +592,14 @@ const secs=[...document.querySelectorAll('section[id]')],navA=[...links.querySel
 addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))},{passive:true});
 document.getElementById('yr').textContent=new Date().getFullYear();
 
-// Returns an error message if the email looks fake/gibberish, otherwise ''
-function checkEmail(v) {
-  const re = /^[a-z0-9](?:[a-z0-9._%+-]{0,62}[a-z0-9])?@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/;
-  if (!re.test(v) || v.includes('..')) return 'Please enter a valid email address.';
-  const [local, domain] = v.split('@');
-  const tld = domain.split('.').pop();
-  if (local.length < 3) return 'That email looks too short. Please check it.';
-  if (/(.)\1{3,}/.test(local)) return 'That email looks incorrect. Please check it.';
-  if (!/[aeiouy]/.test(local.replace(/[^a-z]/g, '')) && !/\d/.test(local)) return 'That email looks incorrect. Please check it.';
-  if (/[bcdfghjklmnpqrstvwxz]{6,}/.test(local)) return 'That email looks incorrect. Please check it.';
-  if (/^[a-z]+$/.test(local) && local.length >= 8 && !/[aeiouy]{1}/.test(local)) return 'That email looks incorrect. Please check it.';
-  if (/^(test|asdf|qwer|abc|xxx|aaa|none|no|fake|example)\d*$/.test(local)) return 'Please use your real email address.';
-  const typos = { 'gmial.com':'gmail.com','gmai.com':'gmail.com','gamil.com':'gmail.com','gmail.co':'gmail.com','gmail.con':'gmail.com','gnail.com':'gmail.com','gmail.cm':'gmail.com','yaho.com':'yahoo.com','yahooo.com':'yahoo.com','hotmial.com':'hotmail.com','outlok.com':'outlook.com' };
-  if (typos[domain]) return 'Did you mean ' + local + '@' + typos[domain] + '?';
-  if (domain.split('.')[0].length < 2 || tld.length > 12) return 'That email domain looks incorrect.';
-  return '';
-}
-
 async function sendEmail(e) {
   e.preventDefault();
   const f = e.target, s = document.getElementById('formStatus'), b = document.getElementById('sendBtn');
   const am = lang === 'am';
-  const emailEl = document.getElementById('e');
-  emailEl.value = emailEl.value.trim().toLowerCase();
-  const bad = checkEmail(emailEl.value);
-  if (bad) {
-    s.textContent = am ? 'እባክዎ ትክክለኛ ኢሜይል ያስገቡ።' : bad;
-    emailEl.focus();
-    return;
-  }
+  
   s.textContent = am ? 'በመላክ ላይ...' : 'Sending...';
   b.disabled = true;
+  
   try {
     const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(f) });
     const d = await r.json();
@@ -634,7 +612,9 @@ async function sendEmail(e) {
   } catch (err) {
     s.textContent = am ? 'የኔትወርክ ችግር። እንደገና ይሞክሩ።' : 'Network error. Please try again.';
   }
+  
   b.disabled = false;
+  setTimeout(() => s.textContent = '', 5000);
 }
 </script>
 </body>
