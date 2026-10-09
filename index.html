@@ -167,6 +167,16 @@ h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
 .leader h3 { font-size:1.15rem; margin: 0; color: var(--text); }
 .leader p { font-size:.85rem; margin: 0.3rem 0 0 0; color: var(--secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
 
+/* Form Cards UI */
+.form-card { display:flex; align-items:center; gap:1.2rem; background:var(--bg); padding:1.2rem 1.5rem; border:2px solid var(--line); border-radius:12px; text-decoration:none; transition:all .3s cubic-bezier(0.4, 0, 0.2, 1); }
+.form-card:hover { border-color:var(--primary); transform:translateY(-3px); box-shadow:var(--shadow-md); background:var(--card); }
+.form-card svg { color:var(--primary); flex-shrink:0; width:36px; height:36px; background:var(--alt); padding:8px; border-radius:8px; transition:transform .3s ease; }
+.form-card:hover svg { transform:scale(1.05); }
+.form-card div { display:flex; flex-direction:column; }
+.form-card strong { color:var(--text); font-size:1.1rem; line-height:1.2; margin-bottom:0.2rem; transition:color .3s ease; }
+.form-card:hover strong { color:var(--primary); }
+.form-card span { color:var(--muted); font-size:.85rem; line-height:1.4; }
+
 /* contact */
 form { display:grid; gap:1.2rem; background: var(--card); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow-md); }
 label { font-size:.85rem; font-weight:600; display:block; margin-bottom:.5rem; color: var(--text); }
@@ -379,7 +389,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <div class="event"><span class="n">II</span><div><h3 data-am="የአዲስ ተማሪዎች አቀባበል">Fresh Welcome</h3><p data-am="አዲስ ክርስቲያን ተማሪዎችን የምንቀበልበትና ወደ ኅብረቱ የምንቀላቅልበት ቀን።">The day we welcome new Christian students and bring them into the fellowship family.</p></div></div>
       <div class="event"><span class="n">III</span><div><h3 data-am="ኮንፍረንስ">Conference</h3><p data-am="በዓመት ቢያንስ አንድ ጊዜ፣ ለ2-3 ቀናት በተጋባዥ ሰባኪና ዘማሪ።">At least once a year, over two to three days, with guest speakers and worship leaders.</p></div></div>
       <div class="event"><span class="n">IV</span><div><h3 data-am="የባች ቀንና የተመራቂዎች ሽኝት">Batch Day &amp; Graduate Send-off</h3><p data-am="የባቹን አንድነት የምናጠናክርበትና ተመራቂዎችን በጸሎት የምንሸኝበት።">Strengthening each batch, and sending graduating students off with prayer and certificates.</p></div></div>
-      <div class="event"><span class="n">V</span><div><h3 data-am="ጠቅላላ መሪዎች ጉባኤ (Big Retreat)">Leaders Big Retreat</h3><p data-am="በአዲስ ዓመት መጀመሪያ ለ3 ቀናት የጸሎት፣ የግምገማና የዕቅድ ጊዜ፤ የዓመቱ መሪ ሃሳብም ይተዋወቃል።">Three days of prayer, review, and planning, where the year's Big Picture theme is introduced.</p></div></div>
+      <div class="event"><span class="n">V</span><div><h3 data-am="ጠቅላ জরিমানা መሪዎች ጉባኤ (Big Retreat)">Leaders Big Retreat</h3><p data-am="በአዲስ ዓመት መጀመሪያ ለ3 ቀናት የጸሎት፣ የግምገማና የዕቅድ ጊዜ፤ የዓመቱ መሪ ሃሳብም ይተዋወቃል።">Three days of prayer, review, and planning, where the year's Big Picture theme is introduced.</p></div></div>
     </div>
   </div>
 </section>
@@ -493,12 +503,25 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       </form>
 
       <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--line);">
-        <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem;" data-am="ለአባላት እና ምሩቃን">For Members &amp; Graduates</h3>
-        <p style="font-size: 0.95rem; margin-bottom: 1.2rem; color: var(--muted);" data-am="እባክዎትን ይህንን ቅጽ በመሙላት ይመዝገቡ።">Please register by filling out this form.</p>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;" data-am="ለአባላት እና ምሩቃን">For Members &amp; Graduates</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 1.2rem; color: var(--muted);" data-am="እባክዎትን የሚመለከተዎትን ቅጽ በመምረጥ ይመዝገቡ።">Please register by selecting the appropriate form below.</p>
         
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a class="btn" id="gformBtn" href="https://forms.gle/7t3TzbLUzVG4kCNKA" target="_blank" rel="noopener noreferrer" data-am="የአባላት ቅጽ">Members Form</a>
-          <a class="btn" id="postgradBtn" href="POSTGRAD_FORM_LINK_HERE" target="_blank" rel="noopener noreferrer" data-am="የድህረ ምረቃ ቅጽ">Postgraduates Form</a>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <a class="form-card" href="https://forms.gle/7t3TzbLUzVG4kCNKA" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <div>
+              <strong data-am="የአባላት ቅጽ">Members Form</strong>
+              <span data-am="ለቅድመ ምረቃ ተማሪዎች">For undergrad students</span>
+            </div>
+          </a>
+          
+          <a class="form-card" href="https://forms.gle/crhHVeVWocU2Vt647" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <div>
+              <strong data-am="የድህረ ምረቃ ቅጽ">Postgraduates Form</strong>
+              <span data-am="ለምሩቃን እና ፒጂ ተማሪዎች">For alumni &amp; PG students</span>
+            </div>
+          </a>
         </div>
       </div>
 
