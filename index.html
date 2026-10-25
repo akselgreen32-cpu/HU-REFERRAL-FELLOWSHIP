@@ -160,6 +160,21 @@ h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
 .ticks li:last-child { border-bottom: none; }
 .ticks li::before { content:'✓'; position:absolute; left:0; top: .8rem; font-weight: bold; color:var(--primary); font-size: 1.1rem; }
 
+/* Media / Video Cards */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem; }
+.video-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease; }
+.video-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--secondary); }
+.v-thumb { display: block; position: relative; aspect-ratio: 16/9; overflow: hidden; background: #000; }
+.v-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.9; }
+.video-card:hover .v-thumb img { transform: scale(1.05); opacity: 1; }
+.play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(26, 75, 156, 0.85); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; backdrop-filter: blur(4px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.play-btn svg { width: 26px; height: 26px; margin-left: 4px; }
+.video-card:hover .play-btn { background: var(--primary); transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+.v-info { padding: 1.5rem; }
+.v-info h3 { font-size: 1.15rem; margin: 0 0 0.8rem 0; line-height: 1.4; color: var(--text); }
+.v-link { display: inline-flex; align-items: center; font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none; transition: color 0.2s ease; gap: 5px; }
+.v-link:hover { color: var(--secondary); }
+
 /* leaders */
 .leaders { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
 .leader { background: var(--card); padding: 1.8rem 1.5rem; border-radius: 12px; border: 1px solid var(--line); text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: center; min-height: 100px; }
@@ -205,12 +220,13 @@ input:focus, textarea:focus { outline:none; border-color:var(--primary); box-sha
 .ch-ig:hover a { color: #E1306C; }
 .ch-ig:hover span { transform: translate(2px, -2px); color: #E1306C; }
 
+/* TikTok specific hover colors */
 .ch-tk:hover { border-color: var(--text); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); transform: translateY(-4px); }
 .ch-tk:hover a { color: var(--text); }
 .ch-tk:hover span { transform: translate(2px, -2px); color: var(--text); }
-[data-theme="dark"] .ch-tk:hover { border-color: #ff0050; box-shadow: 0 6px 16px rgba(255, 0, 80, 0.15); }
-[data-theme="dark"] .ch-tk:hover a { color: #ff0050; }
-[data-theme="dark"] .ch-tk:hover span { color: #ff0050; }
+[data-theme="dark"] .ch-tk:hover { border-color: #25F4EE; box-shadow: 0 6px 16px rgba(37, 244, 238, 0.15); }
+[data-theme="dark"] .ch-tk:hover a { color: #25F4EE; }
+[data-theme="dark"] .ch-tk:hover span { color: #25F4EE; }
 
 .ch-yt:hover { border-color: #FF0000; box-shadow: 0 6px 16px rgba(255, 0, 0, 0.15); transform: translateY(-4px); }
 .ch-yt:hover a { color: #FF0000; }
@@ -258,6 +274,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
       <li><a href="#teams" data-am="ዘርፎች">Teams</a></li>
       <li><a href="#events" data-am="ዝግጅቶች">Events</a></li>
       <li><a href="#mission" data-am="ሚሲዮን">Mission</a></li>
+      <li><a href="#media" data-am="ሚዲያ">Media</a></li>
       <li><a href="#leaders" data-am="መሪዎች">Leaders</a></li>
       <li><a href="#schedule" data-am="መርሃግብር">Schedule</a></li>
       <li><a href="#contact" data-am="ያግኙን">Contact</a></li>
@@ -440,7 +457,54 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   </div>
 </section>
 
-<section id="leaders" class="alt">
+<!-- NEW MEDIA SECTION -->
+<section id="media" class="alt">
+  <div class="wrap">
+    <div class="intro reveal center" style="margin-left: auto; margin-right: auto;">
+      <div class="label" data-am="ሚዲያና መልእክቶች" style="justify-content: center;">Latest Media</div>
+      <h2 data-am="ከዲጂታል አገልግሎታችን">From our Digital Ministry</h2>
+      <p data-am="አዳዲስ ቪዲዮዎችን እና አጫጭር መልእክቶችን በዩቲዩብ ቻናላችን ይከታተሉ።">Watch our latest videos and short messages from our YouTube channel.</p>
+    </div>
+    
+    <div class="video-grid reveal">
+      
+      <!-- Video Card 1 -->
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=lNWArDDGR9k" target="_blank" rel="noopener noreferrer" class="v-thumb">
+          <img src="https://img.youtube.com/vi/lNWArDDGR9k/maxresdefault.jpg" alt="Jehovah Jireh — The Lord Our Provider">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </a>
+        <div class="v-info">
+          <h3 data-am="Jehovah Jireh — The Lord Our Provider">Jehovah Jireh — The Lord Our Provider</h3>
+          <a class="v-link" href="https://www.youtube.com/watch?v=lNWArDDGR9k" target="_blank" rel="noopener noreferrer">
+            <span data-am="በዩቲዩብ ይመልከቱ">Open in YouTube</span> &rarr;
+          </a>
+        </div>
+      </div>
+      
+      <!-- Video Card 2 -->
+      <div class="video-card">
+        <a href="https://www.youtube.com/shorts/IY3IKeR4br8" target="_blank" rel="noopener noreferrer" class="v-thumb">
+          <img src="https://img.youtube.com/vi/IY3IKeR4br8/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/IY3IKeR4br8/hqdefault.jpg';" alt="Jehovah Shalom | Shalom to the Heart">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </a>
+        <div class="v-info">
+          <h3 data-am="Jehovah Shalom | Shalom to the Heart">Jehovah Shalom | Shalom to the Heart</h3>
+          <a class="v-link" href="https://www.youtube.com/shorts/IY3IKeR4br8" target="_blank" rel="noopener noreferrer">
+            <span data-am="በዩቲዩብ ይመልከቱ">Open in YouTube</span> &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="leaders">
   <div class="wrap">
     <div class="intro reveal">
       <div class="label" data-am="አመራር">Leadership</div>
@@ -473,7 +537,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   </div>
 </section>
 
-<section id="schedule">
+<section id="schedule" class="alt">
   <div class="wrap">
     <div class="intro reveal">
       <div class="label" data-am="ሳምንታዊ መርሃግብር">Weekly Schedule</div>
@@ -494,7 +558,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   </div>
 </section>
 
-<section id="contact" class="alt">
+<section id="contact">
   <div class="wrap">
     
     <!-- Registration Banner UI -->
@@ -507,7 +571,6 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         
         <a class="reg-card" href="https://forms.gle/7t3TzbLUzVG4kCNKA" target="_blank" rel="noopener noreferrer">
           <div class="rc-icon">
-            <!-- Distinct "User Plus" Icon to avoid conflict with Welfare Team icon -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="8.5" cy="7" r="4"></circle>
@@ -524,7 +587,6 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         
         <a class="reg-card" href="https://forms.gle/crhHVeVWocU2Vt647" target="_blank" rel="noopener noreferrer">
           <div class="rc-icon">
-            <!-- Graduation Cap Icon -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
               <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
