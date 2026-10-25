@@ -212,6 +212,10 @@ input:focus, textarea:focus { outline:none; border-color:var(--primary); box-sha
 [data-theme="dark"] .ch-tk:hover a { color: #ff0050; }
 [data-theme="dark"] .ch-tk:hover span { color: #ff0050; }
 
+.ch-yt:hover { border-color: #FF0000; box-shadow: 0 6px 16px rgba(255, 0, 0, 0.15); transform: translateY(-4px); }
+.ch-yt:hover a { color: #FF0000; }
+.ch-yt:hover span { transform: translate(2px, -2px); color: #FF0000; }
+
 footer { background:var(--foot); color:#aebfdc; padding:4rem 0 2rem; text-align:center; }
 footer strong { display:block; font-family:var(--serif); color:#fff; font-size:1.3rem; margin-bottom:.6rem; }
 footer p { color:#aebfdc; font-size:.95rem; margin:0 auto .5rem; max-width:60ch; }
@@ -503,6 +507,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         
         <a class="reg-card" href="https://forms.gle/7t3TzbLUzVG4kCNKA" target="_blank" rel="noopener noreferrer">
           <div class="rc-icon">
+            <!-- Distinct "User Plus" Icon to avoid conflict with Welfare Team icon -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="8.5" cy="7" r="4"></circle>
@@ -519,6 +524,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         
         <a class="reg-card" href="https://forms.gle/crhHVeVWocU2Vt647" target="_blank" rel="noopener noreferrer">
           <div class="rc-icon">
+            <!-- Graduation Cap Icon -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
               <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
@@ -562,6 +568,15 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
             <div class="icon-wrap">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
               Telegram
+            </div>
+            <span>&nearr;</span>
+          </a>
+        </li>
+        <li class="ch-yt">
+          <a href="https://www.youtube.com/channel/UC3Cqr5Ry8c9MUr01nDuJzFw" target="_blank" rel="noopener noreferrer">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+              YouTube
             </div>
             <span>&nearr;</span>
           </a>
