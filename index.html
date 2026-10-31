@@ -160,6 +160,27 @@ h2 { font-size:clamp(2rem, 3.5vw, 2.8rem); margin-bottom:1.5rem; }
 .ticks li:last-child { border-bottom: none; }
 .ticks li::before { content:'✓'; position:absolute; left:0; top: .8rem; font-weight: bold; color:var(--primary); font-size: 1.1rem; }
 
+/* Mission documentary (video styled like the page photos) */
+.doc-row { margin-top: 5rem; grid-template-columns: 1fr 1.25fr; }
+.doc-row h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 1rem; }
+.doc-row .btn { margin-top: .4rem; }
+.doc-frame { position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); background: linear-gradient(135deg, #1a4b9c, #0f2a5c); isolation: isolate; }
+.doc-frame::after { content: ''; position: absolute; inset: 10px; border: 1px solid rgba(255,255,255,.35); border-radius: 10px; pointer-events: none; z-index: 2; }
+.doc-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: transparent; color: #fff; font: inherit; text-align: left; display: block; }
+.doc-play img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter .4s ease; }
+.doc-play::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(15,42,92,.35) 0%, rgba(15,42,92,0) 35%, rgba(10,16,32,.85) 100%); }
+.doc-frame:hover .doc-play img { transform: scale(1.05); }
+.doc-badge { position: absolute; top: 1.4rem; left: 1.4rem; z-index: 3; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 20px; background: rgba(255,255,255,.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.35); }
+.doc-btn { position: absolute; top: 50%; left: 50%; z-index: 3; width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 50%; background: #fff; color: var(--primary, #1a4b9c); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 28px rgba(0,0,0,.4); transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1); }
+.doc-btn svg { width: 34px; height: 34px; margin-left: 4px; fill: #1a4b9c; }
+.doc-btn::before { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #fff; animation: ring 2.4s ease-out infinite; }
+@keyframes ring { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(1.7); opacity: 0; } }
+.doc-frame:hover .doc-btn { transform: scale(1.1); }
+.doc-cap { position: absolute; left: 1.6rem; right: 1.6rem; bottom: 1.4rem; z-index: 3; font-family: var(--serif); font-weight: 700; font-size: clamp(1.05rem, 2vw, 1.4rem); line-height: 1.3; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+.doc-cap small { display: block; font-family: var(--sans); font-weight: 500; font-size: .8rem; color: #bcd3f5; margin-top: .2rem; }
+.doc-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 4; background: #000; }
+.doc-frame.playing::after { display: none; }
+
 /* leaders */
 .leaders { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
 .leader { background: var(--card); padding: 1.8rem 1.5rem; border-radius: 12px; border: 1px solid var(--line); text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: center; min-height: 100px; }
@@ -233,6 +254,7 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   .links a:last-child { border-bottom: none; }
   #menuBtn { display:block; }
   .split { grid-template-columns:1fr; gap:3rem; }
+  .doc-row { margin-top: 4rem; }
   .cards, .teams, .leaders { grid-template-columns:repeat(2,1fr); }
   section { padding:5rem 0; }
   .hero { padding-top:calc(76px + 5rem + env(safe-area-inset-top,0px)); padding-bottom:5rem; }
@@ -243,8 +265,11 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
   .brand small { display:none; }
   h2 { font-size: 2rem; }
   .hero h1 { font-size: 2.2rem; }
+  .doc-btn { width: 68px; height: 68px; margin: -34px 0 0 -34px; }
+  .doc-badge { top: 1rem; left: 1rem; }
+  .doc-cap { left: 1.1rem; right: 1.1rem; bottom: 1rem; }
 }
-@media (prefers-reduced-motion:reduce) { * { transition:none!important; } .reveal { opacity:1; transform:none; } html { scroll-behavior:auto; } }
+@media (prefers-reduced-motion:reduce) { * { transition:none!important; } .reveal { opacity:1; transform:none; } html { scroll-behavior:auto; } .doc-btn::before { animation:none; } }
 </style>
 </head>
 <body>
@@ -419,6 +444,24 @@ footer .copy { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(25
         <li data-am="ሚሲዮን የመላው ኅብረቱ የጋራ አገልግሎት ነው፤ መሪዎች ቢቀያየሩም አይቋረጥም።">Mission belongs to the whole fellowship and continues as leaders change.</li>
         <li data-am="ለእያንዳንዱ አካባቢ ቢያንስ ለሦስት ዓመት ለማገልገል እንዘጋጃለን።">We commit to each area for at least three years.</li>
       </ul>
+    </div>
+  </div>
+
+  <!-- Fifth Mission Trip Documentary -->
+  <div class="wrap split doc-row">
+    <div class="reveal">
+      <div class="label" data-am="ዘጋቢ ፊልም">Documentary</div>
+      <h3 data-am="የአምስተኛው ሚሲዮናዊ ጉዞ ዘጋቢ ፊልም">The Fifth Mission Trip Documentary</h3>
+      <p data-am="አምስተኛው ሚሲዮናዊ ጉዞ እንዴት እንደነበር ይመልከቱ።">Watch how our fifth mission trip unfolded.</p>
+      <a class="btn" href="https://youtu.be/fJNiugdJ06Q" target="_blank" rel="noopener noreferrer" data-am="በYouTube ይመልከቱ">Watch on YouTube</a>
+    </div>
+    <div class="doc-frame reveal" id="docFrame">
+      <button class="doc-play" id="docPlay" type="button" aria-label="Play the fifth mission trip documentary">
+        <img src="https://i.ytimg.com/vi/fJNiugdJ06Q/maxresdefault.jpg" alt="" loading="lazy" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/fJNiugdJ06Q/hqdefault.jpg';">
+        <span class="doc-badge" data-am="5ኛው ሚሲዮናዊ ጉዞ">5th Mission Trip</span>
+        <span class="doc-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="doc-cap"><span data-am="የአምስተኛው ሚሲዮናዊ ጉዞ ዘጋቢ ፊልም">The Fifth Mission Trip Documentary</span><small data-am="ደቡብ ኦሞ · ሚሲዮን">South Omo &middot; Mission</small></span>
+      </button>
     </div>
   </div>
 </section>
@@ -662,6 +705,19 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const secs=[...document.querySelectorAll('section[id]')],navA=[...links.querySelectorAll('a')];
 addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)c=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c))},{passive:true});
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+// Documentary: load the YouTube player only after the poster is tapped (saves data)
+document.getElementById('docPlay').addEventListener('click',()=>{
+  const frame=document.getElementById('docFrame');
+  const f=document.createElement('iframe');
+  f.src='https://www.youtube-nocookie.com/embed/fJNiugdJ06Q?autoplay=1&rel=0';
+  f.title='Fifth Mission Trip Documentary';
+  f.allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+  f.referrerPolicy='strict-origin-when-cross-origin';
+  f.allowFullscreen=true;
+  frame.classList.add('playing');
+  frame.appendChild(f);
+});
 
 async function sendEmail(e) {
   e.preventDefault();
